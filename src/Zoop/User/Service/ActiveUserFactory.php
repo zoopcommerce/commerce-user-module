@@ -8,6 +8,10 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Session\Container;
 
+/**
+ * 
+ * @author Josh Stuart <josh.stuart@zoopcommerce.com>
+ */
 class ActiveUserFactory implements FactoryInterface
 {
     /**
@@ -40,11 +44,11 @@ class ActiveUserFactory implements FactoryInterface
         $documentManager = $serviceLocator->get('shard.commerce.modelmanager');
 
         $user = $documentManager
-                ->createQueryBuilder()
-                ->find('Zoop\User\DataModel\AbstractUser')
-                ->field('id')->equals($id)
-                ->getQuery()
-                ->getSingleResult();
+            ->createQueryBuilder()
+            ->find('Zoop\User\DataModel\AbstractUser')
+            ->field('id')->equals($id)
+            ->getQuery()
+            ->getSingleResult();
 
         return $user;
     }

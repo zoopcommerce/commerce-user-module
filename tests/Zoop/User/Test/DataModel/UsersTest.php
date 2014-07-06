@@ -31,5 +31,6 @@ class UsersTest extends AbstractTest
         $this->assertTrue($user instanceof ZoopSuperAdmin);
         $this->assertEquals($email, $user->getEmail());
         $this->assertNotEquals($password, $user->getPassword());
+        $this->getDocumentManager()->clear($user);
     }
 }

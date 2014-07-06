@@ -8,13 +8,11 @@ namespace Zoop\User\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Zoop\Sage\HttpBasicResolver;
+use Zoop\User\HttpBasicResolver;
 
 /**
- *
- * @since   1.0
- * @version $Revision$
- * @author  Tim Roediger <superdweebie@gmail.com>
+ * 
+ * @author Josh Stuart <josh.stuart@zoopcommerce.com>
  */
 class HttpBasicResolverFactory implements FactoryInterface
 {
@@ -25,11 +23,7 @@ class HttpBasicResolverFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $config = $serviceLocator->get('config')['zoop']['sage']['store_admin'];
-
         $return = new HttpBasicResolver();
-        $return->setUsername($config['username']);
-        $return->setPassword($config['password']);
 
         return $return;
     }

@@ -3,6 +3,7 @@
 namespace Zoop\User\DataModel\Zoop;
 
 use Zoop\Common\User\RoleAwareUserInterface;
+use Zoop\Common\User\UserInterface as CommonUserInterface;
 use  Zoop\User\DataModel\UserInterface;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\DataModel\Roles;
@@ -18,6 +19,7 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  */
 class SuperAdmin extends AbstractUser implements 
     UserInterface,
+    CommonUserInterface,
     RoleAwareUserInterface
 {
     public function __construct()

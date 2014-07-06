@@ -4,6 +4,7 @@ namespace Zoop\User\Test;
 
 use Zoop\Store\DataModel\Store;
 use Zoop\User\DataModel\AbstractUser;
+use Zoop\User\DataModel\Zoop\SuperAdmin as ZoopSuperAdmin;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Zoop\Shard\Core\Events;
@@ -39,6 +40,25 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
             
             $eventManager = self::$documentManager->getEventManager();
             $eventManager->addEventListener(Events::EXCEPTION, $this);
+        }
+    }
+
+    public static function tearDownAfterClass()
+    {
+        self::clearDb();
+    }
+    
+    public static function clearDb()
+    {
+        $documentManager = self::getDocumentManager();
+                
+        $collections = $documentManager->getConnection()
+            ->selectDatabase(self::getDbName())
+            ->listCollections();
+
+        foreach ($collections as $collection) {
+            /* @var $collection \MongoCollection */
+            $collection->drop();
         }
     }
 
@@ -84,13 +104,66 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     
     /**
      * 
-     * @param string $email
+     * @param string $id
      * @return AbstractUser
      */
-    public function getUser($email)
+    public function getUser($id)
     {
+//        return self::getDocumentManager()
+//            ->getRepository('Zoop\User\DataModel\AbstractUser')
+//            ->findOneBy(['username' => $id]);
         return self::getDocumentManager()
-            ->getRepository('Zoop\User\DataModel\AbstractUser')
-            ->findOneBy(['email' => $email]);
+                ->createQueryBuilder()
+                ->find('Zoop\User\DataModel\AbstractUser')
+                ->field('username')->equals($id)
+                ->getQuery()
+                ->getSingleResult();
+    }
+
+    /**
+     * 
+     * @param array $data
+     */
+    public function createStore($data = [])
+    {
+        if (!empty($data)) {
+            //serialize
+        } else {
+            $store = new Store;
+            $store->setSlug('tesla');
+            $store->setSubdomain('tesla');
+            $store->setName('Tesla');
+            $store->setEmail('elon@teslamotors.com');
+        }
+
+        self::getDocumentManager()->persist($store);
+        self::getDocumentManager()->flush($store);
+        self::getDocumentManager()->clear();
+        
+        return $store;
+    }
+    
+    /**
+     * 
+     */
+    public function createUser()
+    {
+        $email = 'elon@teslamotors.com';
+        $password = 'solarcity';
+        
+        $user = new ZoopSuperAdmin;
+        $user->setEmail($email);
+        $user->setFirstName('Elon');
+        $user->setLastName('Musk');
+        $user->setUsername('elonmusk');
+        $user->setPassword($password);
+        $user->addStore('tesla');
+        $user->addStore('spacex');
+        
+        $this->getDocumentManager()->persist($user);
+        $this->getDocumentManager()->flush($user);
+        $this->getDocumentManager()->clear($user);
+        
+        return $user;
     }
 }

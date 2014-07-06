@@ -2,7 +2,9 @@
 
 namespace Zoop\User\DataModel;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Zoop\Store\DataModel\StoresTrait;
+use Zoop\User\DataModel\ApiCredential;
 use Zoop\Shard\Stamp\DataModel\CreatedOnTrait;
 use Zoop\Shard\Stamp\DataModel\UpdatedOnTrait;
 use Zoop\Shard\SoftDelete\DataModel\SoftDeleteableTrait;
@@ -50,11 +52,6 @@ class AbstractUser
     use StoresTrait;
 
     /**
-     * @ODM\Id(strategy="UUID")
-     */
-    protected $id;
-
-    /**
      * @ODM\String
      */
     protected $firstName;
@@ -77,48 +74,107 @@ class AbstractUser
      */
     protected $password;
 
-    public function getId()
-    {
-        return $this->id;
-    }
+    /**
+     * @ODM\EmbedMany(targetDocument="\Zoop\User\DataModel\ApiCredential")
+     */
+    protected $apiCredentials = [];
     
+    /**
+     * 
+     * @return string
+     */
     public function getFirstName()
     {
         return $this->firstName;
     }
 
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
+    /**
+     * 
+     * @param string $firstName
+     */
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
     }
 
+    /**
+     * 
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * 
+     * @param string $lastName
+     */
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
+    /**
+     * 
+     * @param string $email
+     */
     public function setEmail($email)
     {
         $this->email = $email;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
     }
 
+    /**
+     * @param string $password
+     */
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+    
+    /**
+     * @return ArrayCollection
+     */
+    public function getApiCredentials()
+    {
+//        if(!$this->apiCredentials instanceof ArrayCollection) {
+//            $this->apiCredentials = new ArrayCollection;
+//        }
+//        return $this->apiCredentials;
+    }
+
+    /**
+     * @param ArrayCollection $apiCredentials
+     */
+    public function setApiCredentials(ArrayCollection $apiCredentials)
+    {
+//        $this->apiCredentials = $apiCredentials;
+    }
+    
+    /**
+     * @param ApiCredential $apiCredential
+     */
+    public function addApiCredential(ApiCredential $apiCredential)
+    {
+//        if (!$this->getApiCredentials()->contains($apiCredential)) {
+//            $this->getApiCredentials()->add($apiCredential);
+//        }
     }
 }

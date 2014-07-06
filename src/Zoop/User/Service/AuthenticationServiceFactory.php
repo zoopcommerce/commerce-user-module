@@ -1,10 +1,6 @@
 <?php
 
-/**
- * @package    Zoop
- * @license    MIT
- */
-namespace Zoop\Sage\Service;
+namespace Zoop\User\Service;
 
 use Zend\Authentication\Adapter\Http;
 use Zend\Authentication\AuthenticationService;
@@ -13,25 +9,22 @@ use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- *
- * @since   1.0
- * @version $Revision$
- * @author  Tim Roediger <superdweebie@gmail.com>
+ * 
+ * @author Josh Stuart <josh.stuart@zoopcommerce.com>
  */
 class AuthenticationServiceFactory implements FactoryInterface
 {
     /**
-     *
-     * @param  \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
-     * @return \Zend\Authentication\AuthenticationService
+     * @param ServiceLocatorInterface $serviceLocator
+     * @return AuthenticationService
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $adapter = new Http([
             'accept_schemes' => 'basic',
-            'realm' => 'sage'
+            'realm' => 'zoop'
         ]);
-        $adapter->setBasicResolver($serviceLocator->get('zoop.sage.authentication.adapter.http'));
+        $adapter->setBasicResolver($serviceLocator->get('zoop.user.authentication.adapter.http'));
         $adapter->setRequest($serviceLocator->get('request'));
         $adapter->setResponse($serviceLocator->get('response'));
 
