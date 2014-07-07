@@ -154,10 +154,10 @@ class AbstractUser
      */
     public function getApiCredentials()
     {
-//        if(!$this->apiCredentials instanceof ArrayCollection) {
-//            $this->apiCredentials = new ArrayCollection;
-//        }
-//        return $this->apiCredentials;
+        if(!$this->apiCredentials instanceof ArrayCollection) {
+            $this->apiCredentials = new ArrayCollection;
+        }
+        return $this->apiCredentials;
     }
 
     /**
@@ -165,7 +165,7 @@ class AbstractUser
      */
     public function setApiCredentials(ArrayCollection $apiCredentials)
     {
-//        $this->apiCredentials = $apiCredentials;
+        $this->apiCredentials = $apiCredentials;
     }
     
     /**
@@ -173,8 +173,8 @@ class AbstractUser
      */
     public function addApiCredential(ApiCredential $apiCredential)
     {
-//        if (!$this->getApiCredentials()->contains($apiCredential)) {
-//            $this->getApiCredentials()->add($apiCredential);
-//        }
+        if (!$this->getApiCredentials()->contains($apiCredential)) {
+            $this->getApiCredentials()->add($apiCredential);
+        }
     }
 }

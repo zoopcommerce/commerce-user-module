@@ -28,8 +28,6 @@ class AuthenticationServiceFactory implements FactoryInterface
         $adapter->setRequest($serviceLocator->get('request'));
         $adapter->setResponse($serviceLocator->get('response'));
 
-        $return = new AuthenticationService(new NonPersistent, $adapter);
-
-        return $return;
+        return new AuthenticationService(new NonPersistent, $adapter);
     }
 }

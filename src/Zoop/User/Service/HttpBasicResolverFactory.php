@@ -23,8 +23,6 @@ class HttpBasicResolverFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $return = new HttpBasicResolver();
-
-        return $return;
+        return new HttpBasicResolver();
     }
 }

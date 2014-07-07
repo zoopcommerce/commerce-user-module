@@ -81,13 +81,15 @@ return array(
         ],
     ],
     'service_manager' => [
+        'abstract_factories' => [
+            'user' => 'Zoop\ShardModule\Service\UserAbstractFactory',
+        ],
         'invokables' => [
         ],
         'factories' => [
             'Zend\Authentication\AuthenticationService' => 'Zoop\User\Service\AuthenticationServiceFactory',
             'zoop.user.authentication.adapter.http' => 'Zoop\User\Service\HttpBasicResolverFactory',
             'zoop.user.active' => 'Zoop\User\Service\ActiveUserFactory',
-//            'user' => 'Zoop\User\Service\ActiveUserFactory',
         ],
     ],
 );

@@ -2,43 +2,21 @@
 
 namespace Zoop\User\Test\Services;
 
-use \DateTime;
-use \DateTimezone;
 use Zend\Http\Header\Accept;
 use Zend\Http\Header\ContentType;
 use Zend\Http\Header\Origin;
 use Zend\Http\Header\Host;
 use Zend\Http\Header\GenericHeader;
+use Zoop\User\DataModel\ApiCredential;
 use Zoop\User\Test\AbstractTest;
 
 class AuthenticationTest extends AbstractTest
 {
-//    public function testNoAuthenticatedUser()
-//    {
-//        $this->createStore();
-//        
-//        $accept = new Accept;
-//        $accept->addMediaType('application/json');
-//        
-//        $request = $this->getRequest();
-//        
-//        $request->setMethod('GET')
-//            ->getHeaders()->addHeaders([
-//                $accept,
-//                Origin::fromString('Origin: http://tesla.zoopcommerce.local'), 
-//                Host::fromString('Host: tesla.zoopcommerce.local'),
-//                ContentType::fromString('Content-type: application/json'),
-//                GenericHeader::fromString('Authorization: Basic ' . base64_encode('zoop:testPassword'))
-//            ]);
-//        
-//        $this->dispatch('http://tesla.zoopcommerce.local/users');
-//        $response = $this->getResponse();
-//        
-////        $this->assertTrue($response);
-//    }
-    
-    public function testAuthenticatedUser()
+    public function testAuthenticatedZoopSuperUser()
     {
+        $key = 'zoop';
+        $secret = 'testPassword';
+        $this->createAuthUser($key, $secret);
         $this->createStore();
         
         $accept = new Accept;
@@ -52,16 +30,25 @@ class AuthenticationTest extends AbstractTest
                 Origin::fromString('Origin: http://tesla.zoopcommerce.local'), 
                 Host::fromString('Host: tesla.zoopcommerce.local'),
                 ContentType::fromString('Content-type: application/json'),
-                GenericHeader::fromString('Authorization: Basic ' . base64_encode('zoop:testPassword'))
-            ]);
-        $this->createUser();
+                GenericHeader::fromString('Authorization: Basic ' . base64_encode(sprintf('%s:%s', $key, $secret)))
+        ]);
         
-        $user = $this->getUser('elonmusk');
-        
-        $test = 23;
-//        $this->dispatch('http://tesla.zoopcommerce.local/users/elonmusk');
-//        $response = $this->getResponse();
+        $this->dispatch('http://tesla.zoopcommerce.local/users');
+        $response = $this->getResponse();
         
 //        $this->assertTrue($response);
+    }
+    
+    /**
+     * Creates a user in another process so we don't trigger
+     * a get user auth
+     * 
+     * @runInSeparateProcess
+     */
+    protected function createAuthUser($key, $secret)
+    {
+        $credential1 = new ApiCredential($key, $secret);
+        $credential2 = new ApiCredential('random', 'otherkey');
+        $this->createUser([$credential1, $credential2]);
     }
 }

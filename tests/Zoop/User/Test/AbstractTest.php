@@ -4,6 +4,7 @@ namespace Zoop\User\Test;
 
 use Zoop\Store\DataModel\Store;
 use Zoop\User\DataModel\AbstractUser;
+use Zoop\User\DataModel\ApiCredential;
 use Zoop\User\DataModel\Zoop\SuperAdmin as ZoopSuperAdmin;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Doctrine\ODM\MongoDB\DocumentManager;
@@ -51,14 +52,16 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     public static function clearDb()
     {
         $documentManager = self::getDocumentManager();
-                
-        $collections = $documentManager->getConnection()
-            ->selectDatabase(self::getDbName())
-            ->listCollections();
+        
+        if($documentManager instanceof DocumentManager) {
+            $collections = $documentManager->getConnection()
+                ->selectDatabase(self::getDbName())
+                ->listCollections();
 
-        foreach ($collections as $collection) {
-            /* @var $collection \MongoCollection */
-            $collection->drop();
+            foreach ($collections as $collection) {
+                /* @var $collection \MongoCollection */
+                $collection->drop();
+            }
         }
     }
 
@@ -109,9 +112,6 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
      */
     public function getUser($id)
     {
-//        return self::getDocumentManager()
-//            ->getRepository('Zoop\User\DataModel\AbstractUser')
-//            ->findOneBy(['username' => $id]);
         return self::getDocumentManager()
                 ->createQueryBuilder()
                 ->find('Zoop\User\DataModel\AbstractUser')
@@ -123,6 +123,7 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     /**
      * 
      * @param array $data
+     * @return Store
      */
     public function createStore($data = [])
     {
@@ -144,9 +145,9 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     }
     
     /**
-     * 
+     * @return ZoopSuperAdmin
      */
-    public function createUser()
+    public function createUser($credentials = [])
     {
         $email = 'elon@teslamotors.com';
         $password = 'solarcity';
@@ -160,9 +161,17 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
         $user->addStore('tesla');
         $user->addStore('spacex');
         
-        $this->getDocumentManager()->persist($user);
-        $this->getDocumentManager()->flush($user);
-        $this->getDocumentManager()->clear($user);
+        if(!empty($credentials)) {
+            foreach($credentials as $credential) {
+                if($credential instanceof ApiCredential) {
+                    $user->addApiCredential($credential);
+                }
+            }
+        }
+        
+        self::getDocumentManager()->persist($user);
+        self::getDocumentManager()->flush($user);
+        self::getDocumentManager()->clear($user);
         
         return $user;
     }
