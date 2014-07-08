@@ -1,10 +1,10 @@
 <?php
 
-namespace Zoop\User\DataModel\Store;
+namespace Zoop\User\DataModel\Zoop;
 
 use Zoop\Common\User\RoleAwareUserInterface;
 use Zoop\Common\User\UserInterface as CommonUserInterface;
-use  Zoop\User\DataModel\UserInterface;
+use Zoop\User\DataModel\UserInterface;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\DataModel\Roles;
 //Annotation imports
@@ -17,13 +17,13 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     @Shard\Permission\Basic(roles="*", allow="*")
  * })
  */
-class SuperAdmin extends AbstractUser implements 
+class Admin extends AbstractUser implements 
     UserInterface,
     CommonUserInterface,
     RoleAwareUserInterface
 {
     public function __construct()
     {
-        $this->addRole(Roles::STORE_SUPER_ADMIN);
+        $this->addRole(Roles::ZOOP_ADMIN);
     }
 }

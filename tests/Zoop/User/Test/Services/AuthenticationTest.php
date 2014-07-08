@@ -9,14 +9,17 @@ use Zend\Http\Header\Host;
 use Zend\Http\Header\GenericHeader;
 use Zoop\User\DataModel\ApiCredential;
 use Zoop\User\Test\AbstractTest;
+use Zoop\User\Test\Assets\TestData;
 
 class AuthenticationTest extends AbstractTest
 {
     public function testAuthenticatedZoopSuperUser()
     {
         $key = 'zoop';
-        $secret = 'testPassword';
-        $this->createAuthUser($key, $secret);
+        $secret = 'commerce';
+        
+        TestData::createZoopAdminUser(self::getDocumentManager(), self::getDbName());
+        
         $this->createStore();
         
         $accept = new Accept;
@@ -37,18 +40,5 @@ class AuthenticationTest extends AbstractTest
         $response = $this->getResponse();
         
 //        $this->assertTrue($response);
-    }
-    
-    /**
-     * Creates a user in another process so we don't trigger
-     * a get user auth
-     * 
-     * @runInSeparateProcess
-     */
-    protected function createAuthUser($key, $secret)
-    {
-        $credential1 = new ApiCredential($key, $secret);
-        $credential2 = new ApiCredential('random', 'otherkey');
-        $this->createUser([$credential1, $credential2]);
     }
 }

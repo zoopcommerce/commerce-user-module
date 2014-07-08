@@ -1,0 +1,13 @@
+{
+  "_id" : "bigspaceship",
+  "firstName" : "Michael",
+  "lastName" : "Lebowitz",
+  "email" : "michael@bigspaceship.com",
+  "password" : "$2y$10$MzQ5MDU4QkpnaTc4OXlqauItvJs88PQAryshR.UXwC4chuTOV8Ci2",
+  "createdOn" : "2014-07-08T10:16:32Z",
+  "updatedOn" : "2014-07-08T10:16:32Z",
+  "softDeleted" : false,
+  "roles" : ["PartnerAdmin"],
+  "merchants" : ["nestle", "bmw", "youtube"],
+  "type" : "PartnerAdmin"
+}

@@ -3,7 +3,6 @@
 namespace Zoop\User\DataModel;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Zoop\Store\DataModel\StoresTrait;
 use Zoop\User\DataModel\ApiCredential;
 use Zoop\Shard\Stamp\DataModel\CreatedOnTrait;
 use Zoop\Shard\Stamp\DataModel\UpdatedOnTrait;
@@ -31,12 +30,11 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  * @ODM\InheritanceType("SINGLE_COLLECTION")
  * @ODM\DiscriminatorField(fieldName="type")
  * @ODM\DiscriminatorMap({
- *     "ZoopSuperAdmin"                 = "Zoop\User\DataModel\Zoop\SuperAdmin",
- *     "ChannelPartnerSuperAdmin"       = "Zoop\User\DataModel\ChannelPartner\SuperAdmin",
- *     "ChannelPartnerAdmin"            = "Zoop\User\DataModel\ChannelPartner\Admin",
- *     "StoreSuperAdmin"                = "Zoop\User\DataModel\Store\SuperAdmin",
- *     "StoreAdmin"                     = "Zoop\User\DataModel\Store\Admin",
- *     "Customer"                       = "Zoop\User\DataModel\Customer"
+ *     "BrandAdmin"                     = "Zoop\User\DataModel\Brand\Admin",
+ *     "Customer"                       = "Zoop\User\DataModel\Customer",
+ *     "Guest"                          = "Zoop\User\DataModel\Guest",
+ *     "PartnerAdmin"                   = "Zoop\User\DataModel\Partner\Admin",
+ *     "ZoopAdmin"                      = "Zoop\User\DataModel\Zoop\Admin"
  * })
  * @Shard\AccessControl({
  *     @Shard\Permission\Basic(roles="*", allow="*")
@@ -49,7 +47,6 @@ class AbstractUser
     use SoftDeleteableTrait;
     use UserTrait;
     use RoleAwareUserTrait;
-    use StoresTrait;
 
     /**
      * @ODM\String

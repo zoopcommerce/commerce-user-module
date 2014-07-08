@@ -14,7 +14,6 @@ use Zend\Mvc\MvcEvent;
  */
 class Module
 {
-
     /**
      *
      * @return array
@@ -41,5 +40,4 @@ class Module
         //trigger the user factory
         $user = $sm->get('user');
     }
-
 }

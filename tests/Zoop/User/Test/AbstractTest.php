@@ -5,7 +5,7 @@ namespace Zoop\User\Test;
 use Zoop\Store\DataModel\Store;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\DataModel\ApiCredential;
-use Zoop\User\DataModel\Zoop\SuperAdmin as ZoopSuperAdmin;
+use Zoop\User\DataModel\Zoop\Admin as ZoopAdmin;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Zoop\Shard\Core\Events;
@@ -142,37 +142,5 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
         self::getDocumentManager()->clear();
         
         return $store;
-    }
-    
-    /**
-     * @return ZoopSuperAdmin
-     */
-    public function createUser($credentials = [])
-    {
-        $email = 'elon@teslamotors.com';
-        $password = 'solarcity';
-        
-        $user = new ZoopSuperAdmin;
-        $user->setEmail($email);
-        $user->setFirstName('Elon');
-        $user->setLastName('Musk');
-        $user->setUsername('elonmusk');
-        $user->setPassword($password);
-        $user->addStore('tesla');
-        $user->addStore('spacex');
-        
-        if(!empty($credentials)) {
-            foreach($credentials as $credential) {
-                if($credential instanceof ApiCredential) {
-                    $user->addApiCredential($credential);
-                }
-            }
-        }
-        
-        self::getDocumentManager()->persist($user);
-        self::getDocumentManager()->flush($user);
-        self::getDocumentManager()->clear($user);
-        
-        return $user;
     }
 }
