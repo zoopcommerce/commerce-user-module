@@ -9,18 +9,16 @@ class UsersTest extends AbstractTest
 {
     public function testZoopAdmin()
     {
-        $email = 'elon@teslamotors.com';
-        $username = 'elonmusk';
-        $password = 'solarcity';
+        $email = 'josh.stuart@zoopcommerce.com';
+        $username = 'joshstuart';
+        $password = 'zoop1';
         
         $user = new ZoopAdmin;
         $user->setEmail($email);
-        $user->setFirstName('Elon');
-        $user->setLastName('Musk');
+        $user->setFirstName('Josh');
+        $user->setLastName('Stuart');
         $user->setUsername($username);
         $user->setPassword($password);
-        $user->addStore('tesla');
-        $user->addStore('spacex');
         
         $this->getDocumentManager()->persist($user);
         $this->getDocumentManager()->flush($user);

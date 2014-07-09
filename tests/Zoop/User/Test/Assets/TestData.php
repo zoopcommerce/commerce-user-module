@@ -24,6 +24,17 @@ class TestData
     }
     
     /**
+     * 
+     * @param DocumentManager $dm
+     * @param string $dbName
+     */
+    public static function createBrandAdminUser(DocumentManager $dm, $dbName)
+    {
+        $json = self::getJson('DataModel/Brand/Admin');
+        self::insertDocument($dm, $dbName, 'User', $json);
+    }
+    
+    /**
      * @param Unserializer $unserializer
      * @return MerchantAdmin
      */
@@ -34,6 +45,17 @@ class TestData
     }
     
     /**
+     * 
+     * @param DocumentManager $dm
+     * @param string $dbName
+     */
+    public static function createMerchantAdminUser(DocumentManager $dm, $dbName)
+    {
+        $json = self::getJson('DataModel/Merchant/Admin');
+        self::insertDocument($dm, $dbName, 'User', $json);
+    }
+    
+    /**
      * @param Unserializer $unserializer
      * @return PartnerAdmin
      */
@@ -41,6 +63,17 @@ class TestData
     {
         $data = self::getJson('DataModel/Partner/Admin');
         return $unserializer->fromJson($data, self::DOCUMENT_USER);
+    }
+    
+    /**
+     * 
+     * @param DocumentManager $dm
+     * @param string $dbName
+     */
+    public static function createPartnerAdminUser(DocumentManager $dm, $dbName)
+    {
+        $json = self::getJson('DataModel/Partner/Admin');
+        self::insertDocument($dm, $dbName, 'User', $json);
     }
     
     /**
@@ -62,6 +95,17 @@ class TestData
     {
         $json = self::getJson('DataModel/Zoop/Admin');
         self::insertDocument($dm, $dbName, 'User', $json);
+    }
+    
+    /**
+     * 
+     * @param DocumentManager $dm
+     * @param string $dbName
+     */
+    public static function createStore(DocumentManager $dm, $dbName)
+    {
+        $json = self::getJson('DataModel/Store');
+        self::insertDocument($dm, $dbName, 'Store', $json);
     }
 
     /**

@@ -4,13 +4,12 @@ namespace Zoop\User\Test;
 
 use Zoop\Store\DataModel\Store;
 use Zoop\User\DataModel\AbstractUser;
-use Zoop\User\DataModel\ApiCredential;
-use Zoop\User\DataModel\Zoop\Admin as ZoopAdmin;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Zoop\Shard\Core\Events;
 use Zoop\Shard\Manifest;
 use Zoop\Shard\Serializer\Unserializer;
+use Zoop\User\Test\Assets\TestData;
 
 abstract class AbstractTest extends AbstractHttpControllerTestCase
 {
@@ -113,11 +112,11 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     public function getUser($id)
     {
         return self::getDocumentManager()
-                ->createQueryBuilder()
-                ->find('Zoop\User\DataModel\AbstractUser')
-                ->field('username')->equals($id)
-                ->getQuery()
-                ->getSingleResult();
+            ->createQueryBuilder()
+            ->find('Zoop\User\DataModel\AbstractUser')
+            ->field('username')->equals($id)
+            ->getQuery()
+            ->getSingleResult();
     }
 
     /**
@@ -125,22 +124,8 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
      * @param array $data
      * @return Store
      */
-    public function createStore($data = [])
+    public function createStore()
     {
-        if (!empty($data)) {
-            //serialize
-        } else {
-            $store = new Store;
-            $store->setSlug('tesla');
-            $store->setSubdomain('tesla');
-            $store->setName('Tesla');
-            $store->setEmail('elon@teslamotors.com');
-        }
-
-        self::getDocumentManager()->persist($store);
-        self::getDocumentManager()->flush($store);
-        self::getDocumentManager()->clear();
-        
-        return $store;
+        TestData::createStore(self::getDocumentManager(), self::getDbName());
     }
 }

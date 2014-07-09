@@ -1,6 +1,16 @@
 <?php
 
 return [
+    'router' => [
+        'prototypes' => [
+            'zoop/commerce/api' => [
+                'type' => 'Hostname',
+                'options' => [
+                    'route' => 'api.zoopcommerce.local'
+                ],
+            ],
+        ],
+    ],
     'doctrine' => [
         'odm' => [
             'connection' => [

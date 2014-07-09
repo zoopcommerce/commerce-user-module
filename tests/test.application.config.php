@@ -6,6 +6,7 @@ return [
         'DoctrineModule',
         'DoctrineMongoODMModule',
         'Zoop\ShardModule',
+        'Zoop\Api',
         'Zoop\Common',
         'Zoop\User',
         'Zoop\Store'

@@ -61,28 +61,13 @@ return array(
             ]
         ],
     ],
-    'router' => [
-        'routes' => [
-            'rest' => [
-                //this route will look to load a controller
-                //service called `shard.rest.<endpoint>`
-                'options' => [
-                    'route' => '[/:endpoint][/:id]',
-                    'constraints' => [
-                        'endpoint' => '[a-zA-Z][a-zA-Z0-9_-]+',
-                        'id' => '[a-zA-Z][a-zA-Z0-9/_-]+',
-                    ],
-                ],
-            ],
-        ]
-    ],
     'controllers' => [
         'invokables' => [
         ],
     ],
     'service_manager' => [
         'abstract_factories' => [
-            'user' => 'Zoop\ShardModule\Service\UserAbstractFactory',
+//            'user' => 'Zoop\ShardModule\Service\UserAbstractFactory',
         ],
         'invokables' => [
         ],
