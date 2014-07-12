@@ -8,6 +8,12 @@
   "updatedOn" : "2014-07-08T10:16:32Z",
   "softDeleted" : false,
   "roles" : ["PartnerAdmin"],
+  "apiCredentials": [
+      {
+          "key": "partner",
+          "secret": "HVa2YyTJ"
+      }
+  ],
   "merchants" : ["nestle", "bmw", "youtube"],
   "type" : "PartnerAdmin"
 }

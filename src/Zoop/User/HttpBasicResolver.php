@@ -9,6 +9,7 @@ use Zend\Authentication\Adapter\Http\ResolverInterface;
 use Zend\Authentication\Result;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
+use Zoop\Shard\Manifest;
 
 /**
  * 
@@ -51,8 +52,11 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
      */
     protected function getUserFromHttpAuth($username, $realm, $password = null)
     {
-        $qb = $this->getDocumentManager()
-            ->createQueryBuilder(self::USER_COLLECTION);
+        $manifest = $this->getManifest();
+        $acl = $manifest->getServiceManager()->get('accessController');
+        
+        $dm = $this->getDocumentManager();
+        $qb = $dm->createQueryBuilder(self::USER_COLLECTION);
         
         $qb->field('apiCredentials')->elemMatch(
             $qb->expr()->field('key')->equals($username)
@@ -91,5 +95,14 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
     {
         return $this->getServiceLocator()
             ->get('shard.commerce.modelmanager');
+    }
+
+    /**
+     * @return Manifest
+     */
+    protected function getManifest()
+    {
+        return $this->getServiceLocator()
+            ->get('shard.commerce.manifest');
     }
 }

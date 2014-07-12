@@ -30,14 +30,11 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  * @ODM\InheritanceType("SINGLE_COLLECTION")
  * @ODM\DiscriminatorField(fieldName="type")
  * @ODM\DiscriminatorMap({
- *     "BrandAdmin"                     = "Zoop\User\DataModel\Brand\Admin",
+ *     "CompanyAdmin"                   = "Zoop\User\DataModel\Company\Admin",
  *     "Customer"                       = "Zoop\User\DataModel\Customer",
  *     "Guest"                          = "Zoop\User\DataModel\Guest",
  *     "PartnerAdmin"                   = "Zoop\User\DataModel\Partner\Admin",
  *     "ZoopAdmin"                      = "Zoop\User\DataModel\Zoop\Admin"
- * })
- * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles="*", allow="*")
  * })
  */
 class AbstractUser

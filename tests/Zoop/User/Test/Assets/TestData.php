@@ -5,9 +5,8 @@ namespace Zoop\User\Test\Assets;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Zoop\Shard\Serializer\Unserializer;
 use Zoop\User\DataModel\Zoop\Admin as ZoopAdmin;
-use Zoop\User\DataModel\Merchant\Admin as MerchantAdmin;
 use Zoop\User\DataModel\Partner\Admin as PartnerAdmin;
-use Zoop\User\DataModel\Brand\Admin as BrandAdmin;
+use Zoop\User\DataModel\Company\Admin as CompanyAdmin;
 
 class TestData
 {
@@ -15,11 +14,11 @@ class TestData
     
     /**
      * @param Unserializer $unserializer
-     * @return BrandAdmin
+     * @return CompanyAdmin
      */
-    public static function getBrandAdminUser(Unserializer $unserializer)
+    public static function getCompanyAdminUser(Unserializer $unserializer)
     {
-        $data = self::getJson('DataModel/Brand/Admin');
+        $data = self::getJson('DataModel/Company/Admin');
         return $unserializer->fromJson($data, self::DOCUMENT_USER);
     }
     
@@ -28,30 +27,9 @@ class TestData
      * @param DocumentManager $dm
      * @param string $dbName
      */
-    public static function createBrandAdminUser(DocumentManager $dm, $dbName)
+    public static function createCompanyAdminUser(DocumentManager $dm, $dbName)
     {
-        $json = self::getJson('DataModel/Brand/Admin');
-        self::insertDocument($dm, $dbName, 'User', $json);
-    }
-    
-    /**
-     * @param Unserializer $unserializer
-     * @return MerchantAdmin
-     */
-    public static function getMerchantAdminUser(Unserializer $unserializer)
-    {
-        $data = self::getJson('DataModel/Merchant/Admin');
-        return $unserializer->fromJson($data, self::DOCUMENT_USER);
-    }
-    
-    /**
-     * 
-     * @param DocumentManager $dm
-     * @param string $dbName
-     */
-    public static function createMerchantAdminUser(DocumentManager $dm, $dbName)
-    {
-        $json = self::getJson('DataModel/Merchant/Admin');
+        $json = self::getJson('DataModel/Company/Admin');
         self::insertDocument($dm, $dbName, 'User', $json);
     }
     

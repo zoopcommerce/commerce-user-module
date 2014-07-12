@@ -34,6 +34,7 @@ return array(
             'rest' => [
                 'rest' => [
                     'users' => [
+                        'manifest' => 'commerce',
                         'class' => 'Zoop\User\DataModel\AbstractUser',
                         'property' => 'username',
                         'listeners' => [
@@ -67,7 +68,7 @@ return array(
     ],
     'service_manager' => [
         'abstract_factories' => [
-//            'user' => 'Zoop\ShardModule\Service\UserAbstractFactory',
+            'user' => 'Zoop\ShardModule\Service\UserAbstractFactory',
         ],
         'invokables' => [
         ],

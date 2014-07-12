@@ -4,9 +4,9 @@ namespace Zoop\User\DataModel;
 
 class Roles
 {
-    const BRAND_ADMIN = 'BrandAdmin';
-    const CUSTOMER = 'Customer';
-    const GUEST = 'Guest';
-    const PARTNER_ADMIN = 'PartnerAdmin';
-    const ZOOP_ADMIN = 'ZoopAdmin';
+    const COMPANY_ADMIN = 'company-admin';
+    const CUSTOMER = 'customer';
+    const GUEST = 'guest';
+    const PARTNER_ADMIN = 'partner-admin';
+    const ZOOP_ADMIN = 'zoop-admin';
 }
