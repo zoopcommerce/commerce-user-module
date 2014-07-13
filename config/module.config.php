@@ -25,6 +25,9 @@ return array(
                         'Zoop\User\DataModel' => __DIR__ . '/../src/Zoop/User/DataModel'
                     ],
                     'service_manager_config' => [
+                        'abstract_factories' => [
+                            'Zoop\ShardModule\Service\UserAbstractFactory'
+                        ],
                         'factories' => [
                             'zoop.user.password.salt' => 'Zoop\User\Service\PasswordSaltFactory'
                         ]
@@ -67,11 +70,6 @@ return array(
         ],
     ],
     'service_manager' => [
-        'abstract_factories' => [
-            'user' => 'Zoop\ShardModule\Service\UserAbstractFactory',
-        ],
-        'invokables' => [
-        ],
         'factories' => [
             'Zend\Authentication\AuthenticationService' => 'Zoop\User\Service\AuthenticationServiceFactory',
             'zoop.user.authentication.adapter.http' => 'Zoop\User\Service\HttpBasicResolverFactory',

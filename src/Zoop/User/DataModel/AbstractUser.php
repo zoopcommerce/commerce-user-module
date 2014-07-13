@@ -36,6 +36,9 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     "PartnerAdmin"                   = "Zoop\User\DataModel\Partner\Admin",
  *     "ZoopAdmin"                      = "Zoop\User\DataModel\Zoop\Admin"
  * })
+ * @Shard\AccessControl({
+ *     @Shard\Permission\Basic(roles="sys::auth-user", allow="*")
+ * })
  */
 class AbstractUser
 {

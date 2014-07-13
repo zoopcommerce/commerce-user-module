@@ -5,22 +5,23 @@ namespace Zoop\User;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\DataModel\Guest;
+use Zoop\User\DataModel\System;
+use Zoop\User\Roles;
 use Zend\Authentication\Adapter\Http\ResolverInterface;
 use Zend\Authentication\Result;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 use Zoop\Shard\Manifest;
-
 /**
  * 
  * @author Josh Stuart <josh.stuart@zoopcommerce.com>
  */
 class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterface
 {
-
     use ServiceLocatorAwareTrait;
 
     const USER_COLLECTION = 'Zoop\User\DataModel\AbstractUser';
+    protected $sysUser;
 
     /**
      * @param type $username
@@ -52,8 +53,7 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
      */
     protected function getUserFromHttpAuth($username, $realm, $password = null)
     {
-        $manifest = $this->getManifest();
-        $acl = $manifest->getServiceManager()->get('accessController');
+        $this->initTempUser();
         
         $dm = $this->getDocumentManager();
         $qb = $dm->createQueryBuilder(self::USER_COLLECTION);
@@ -63,8 +63,12 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
                 ->field('secret')->equals($password)
         );
         
-        return $qb->getQuery()
+        $user = $qb->getQuery()
             ->getSingleResult();
+        
+        $this->destroyTempUser();
+        
+        return $user;
     }
 
     /**
@@ -104,5 +108,45 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
     {
         return $this->getServiceLocator()
             ->get('shard.commerce.manifest');
+    }
+    
+    /**
+     * @return System
+     */
+    public function getSysUser()
+    {
+        return $this->sysUser;
+    }
+
+    /**
+     * 
+     * @param System $sysUser
+     */
+    public function setSysUser(System $sysUser)
+    {
+        $this->sysUser = $sysUser;
+    }
+
+    /**
+     * Need to temporarily change user for AccessControl
+     * to allow update even though there is no authenticated user
+     */
+    protected function initTempUser()
+    {
+        $sysUser = new System;
+        $sysUser->addRole(Roles::SYSTEM_AUTH_USER);
+        $this->getServiceLocator()->setService('user', $sysUser);
+        
+        $this->setSysUser($sysUser);
+    }
+
+    /**
+     * Need to temporarily change user for AccessControl
+     * to allow update even though there is no authenticated user
+     */
+    protected function destroyTempUser()
+    {
+        $sysUser = $this->getSysUser();
+        $sysUser->removeRole(Roles::SYSTEM_AUTH_USER);
     }
 }
