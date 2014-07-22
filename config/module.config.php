@@ -2,6 +2,20 @@
 
 return array(
     'zoop' => [
+        'api' => [
+            'endpoints' => [
+                'users',
+            ]
+        ],
+        'gateway' => [
+            'document_manager' => 'doctrine.odm.documentmanager.commerce',
+            'shard_manifest'   => 'commerce',
+            'authentication_service_options' => [
+                'enable_per_request'    => true,
+                'enable_per_session'    => false,
+                'enable_remember_me'    => false,
+            ]
+        ],
         'user' => [
             'crypt' => [
                 'salt' => [  //this is a development salt only
@@ -29,7 +43,8 @@ return array(
                             'Zoop\ShardModule\Service\UserAbstractFactory'
                         ],
                         'factories' => [
-                            'zoop.user.password.salt' => 'Zoop\User\Service\PasswordSaltFactory'
+                            'zoop.user.password.salt' => 'Zoop\User\Service\PasswordSaltFactory',
+                            'crypt.emailaddress' => 'Zoop\GomiModule\Service\CryptEmailAddressFactory',
                         ]
                     ]
                 ]
@@ -71,9 +86,9 @@ return array(
     ],
     'service_manager' => [
         'factories' => [
-            'Zend\Authentication\AuthenticationService' => 'Zoop\User\Service\AuthenticationServiceFactory',
-            'zoop.user.authentication.adapter.http' => 'Zoop\User\Service\HttpBasicResolverFactory',
-            'zoop.user.active' => 'Zoop\User\Service\ActiveUserFactory',
+//            'Zend\Authentication\AuthenticationService' => 'Zoop\User\Service\AuthenticationServiceFactory',
+//            'zoop.user.authentication.adapter.http' => 'Zoop\User\Service\HttpBasicResolverFactory',
+//            'zoop.user.active' => 'Zoop\User\Service\ActiveUserFactory',
         ],
     ],
 );

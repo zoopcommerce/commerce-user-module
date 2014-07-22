@@ -3,6 +3,7 @@
 namespace Zoop\User\Test\Assets;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Zoop\GomiModule\DataModel\User;
 use Zoop\Shard\Serializer\Unserializer;
 use Zoop\User\DataModel\Zoop\Admin as ZoopAdmin;
 use Zoop\User\DataModel\Partner\Admin as PartnerAdmin;
@@ -84,6 +85,29 @@ class TestData
     {
         $json = self::getJson('DataModel/Store');
         self::insertDocument($dm, $dbName, 'Store', $json);
+    }
+    
+    public static function createTestUser($serviceLocator, DocumentManager $documentManager)
+    {
+        //craete temp auth user
+        $sysUser = new User;
+        $sysUser->addRole('admin');
+        $serviceLocator->setService('user', $sysUser);
+        
+        $user = new User;
+        $user->setUsername('joshstuart');
+        $user->setFirstName('Josh');
+        $user->setLastName('Stuart');
+        $user->setEmail('josh@example.com');
+        $user->setPassword('password1');
+        $user->setSalt('passwordpasswordpasswordpasswordpassword');
+
+        $documentManager->persist($user);
+
+        $documentManager->flush();
+        
+        $sysUser->removeRole('admin');
+        $documentManager->clear();
     }
 
     /**

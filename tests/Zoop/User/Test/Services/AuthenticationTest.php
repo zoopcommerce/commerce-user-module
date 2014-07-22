@@ -39,9 +39,9 @@ class AuthenticationTest extends AbstractTest
                 Host::fromString('Host: api.zoopcommerce.local'),
                 ContentType::fromString('Content-type: application/json'),
                 GenericHeader::fromString('Authorization: Basic ' . base64_encode(sprintf('%s:%s', $key, $secret)))
-        ]);
+            ]);
         
-        $this->dispatch('http://api.zoopcommerce.local/users');
+        $this->dispatch('http://test.local/test');
         $response = $this->getResponse();
         
         $this->assertResponseStatusCode(200);

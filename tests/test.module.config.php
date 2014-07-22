@@ -10,6 +10,18 @@ return [
                 ],
             ],
         ],
+        'routes' => [
+            'test' => [
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => [
+                    'route' => '/test',
+                    'defaults' => [
+                        'controller' => 'testcontroller',
+                        'action' => 'index'
+                    ],
+                ],
+            ],
+        ]
     ],
     'doctrine' => [
         'odm' => [
@@ -82,5 +94,10 @@ return [
                 'port' => 27017,
             ]
         ],
+    ],
+    'controllers' => [
+        'invokables' => [
+            'testcontroller' => 'Zoop\User\Test\Assets\TestController'
+        ]
     ]
 ];

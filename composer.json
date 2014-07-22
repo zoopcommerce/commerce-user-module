@@ -59,6 +59,7 @@
         "zoopcommerce/commerce-api-module"          : "dev-master",
         "zoopcommerce/commerce-common-module"       : "dev-master",
         "zoopcommerce/commerce-store-module"        : "dev-master",
+        "zoopcommerce/gateway-module"               : "~2.0",
         "zoopcommerce/shard-module"                 : "~4.0"
     },
     "require-dev": {
