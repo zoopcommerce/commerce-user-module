@@ -7,6 +7,7 @@ use Zoop\User\DataModel\ApiCredential;
 use Zoop\Shard\Stamp\DataModel\CreatedOnTrait;
 use Zoop\Shard\Stamp\DataModel\UpdatedOnTrait;
 use Zoop\Shard\SoftDelete\DataModel\SoftDeleteableTrait;
+use Zoop\Shard\User\DataModel\PasswordTrait;
 use Zoop\Shard\User\DataModel\UserTrait;
 use Zoop\Shard\User\DataModel\RoleAwareUserTrait;
 //Annotation imports
@@ -37,7 +38,9 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     "ZoopAdmin"                      = "Zoop\User\DataModel\Zoop\Admin"
  * })
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles="sys::auth-user", allow="*")
+ *     @Shard\Permission\Basic(roles="zoop-admin", allow="*"),
+ *     @Shard\Permission\Basic(roles="partner-admin", deny="*"),
+ *     @Shard\Permission\Basic(roles="company-admin", deny="*")
  * })
  */
 class AbstractUser
@@ -46,6 +49,7 @@ class AbstractUser
     use UpdatedOnTrait;
     use SoftDeleteableTrait;
     use UserTrait;
+    use PasswordTrait;
     use RoleAwareUserTrait;
 
     /**
@@ -60,16 +64,17 @@ class AbstractUser
 
     /**
      * @ODM\String
+     * @Shard\Serializer\Ignore("ignore_when_serializing")
+     * @Shard\Crypt\BlockCipher(
+     *     key = "crypt.emailaddress",
+     *     salt = "crypt.emailaddress"
+     * )
+     * @Shard\Validator\Chain({
+     *     @Shard\Validator\Required,
+     *     @Shard\Validator\Email
+     * })
      */
     protected $email;
-
-    /**
-     * @ODM\String
-     * @Shard\Crypt\Hash(
-     *     salt = "zoop.user.password.salt"
-     * )
-     */
-    protected $password;
 
     /**
      * @ODM\EmbedMany(targetDocument="\Zoop\User\DataModel\ApiCredential")
@@ -113,7 +118,6 @@ class AbstractUser
     }
 
     /**
-     * 
      * @return string
      */
     public function getEmail()
@@ -122,28 +126,11 @@ class AbstractUser
     }
 
     /**
-     * 
      * @param string $email
      */
     public function setEmail($email)
     {
-        $this->email = $email;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
+        $this->email = (string) $email;
     }
     
     /**

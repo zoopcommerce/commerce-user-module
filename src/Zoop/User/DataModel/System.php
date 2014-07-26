@@ -6,6 +6,7 @@ use Zoop\Common\User\RoleAwareUserInterface;
 use Zoop\Common\User\UserInterface as CommonUserInterface;
 use Zoop\User\DataModel\UserInterface;
 use Zoop\User\DataModel\AbstractUser;
+use Zoop\User\Roles;
 //Annotation imports
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Zoop\Shard\Annotation\Annotations as Shard;
@@ -21,4 +22,8 @@ class System extends AbstractUser implements
     CommonUserInterface,
     RoleAwareUserInterface
 {
+    public function __construct()
+    {
+        $this->addRole(Roles::SYSTEM_AUTH_USER);
+    }
 }

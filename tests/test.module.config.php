@@ -33,9 +33,26 @@ return [
                     'user' => '',
                     'password' => '',
                 ],
+                'userauth' => [
+                    'dbname' => 'zoop_test',
+                    'server' => 'localhost',
+                    'port' => '27017',
+                    'user' => '',
+                    'password' => '',
+                ],
             ],
             'configuration' => [
                 'commerce' => [
+                    'metadata_cache' => 'doctrine.cache.array',
+                    'default_db' => 'zoop_test',
+                    'generate_proxies' => true,
+                    'proxy_dir' => __DIR__ . '/../data/proxies',
+                    'proxy_namespace' => 'proxies',
+                    'generate_hydrators' => true,
+                    'hydrator_dir' => __DIR__ . '/../data/hydrators',
+                    'hydrator_namespace' => 'hydrators',
+                ],
+                'userauth' => [
                     'metadata_cache' => 'doctrine.cache.array',
                     'default_db' => 'zoop_test',
                     'generate_proxies' => true,

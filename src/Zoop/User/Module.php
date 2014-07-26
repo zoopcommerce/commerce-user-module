@@ -6,10 +6,6 @@
 
 namespace Zoop\User;
 
-use Zend\Mvc\MvcEvent;
-use Zoop\User\DataModel\System;
-use Zoop\User\Roles;
-
 /**
  *
  * @author  Josh Stuart <josh.stuart@zoopcommerce.com>

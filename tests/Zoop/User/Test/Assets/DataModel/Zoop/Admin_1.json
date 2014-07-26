@@ -1,0 +1,13 @@
+{
+  "username" : "joshstuart",
+  "firstName" : "Josh",
+  "lastName" : "Stuart",
+  "email" : "josh@example.com",
+  "createdOn" : "2014-07-26T02:19:29Z",
+  "updatedOn" : "2014-07-26T02:19:29Z",
+  "softDeleted" : false,
+  "password" : "password1",
+  "salt" : "passwordpasswordpasswordpasswordpassword",
+  "roles" : ["zoop-admin"],
+  "type" : "ZoopAdmin"
+}

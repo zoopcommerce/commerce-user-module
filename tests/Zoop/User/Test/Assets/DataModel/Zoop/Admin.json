@@ -2,17 +2,12 @@
   "_id" : "joshstuart",
   "firstName" : "Josh",
   "lastName" : "Stuart",
-  "email" : "josh@zoopcommerce.com",
-  "password" : "$2y$10$MzQ5MDU4QkpnaTc4OXlqauItvJs88PQAryshR.UXwC4chuTOV8Ci2",
-  "createdOn" : "2014-07-08T10:16:32Z",
-  "updatedOn" : "2014-07-08T10:16:32Z",
+  "email" : "49bd3966bebc28d6f7dd2a585a0b47a3aaad63df3520e739a184f7f6b55c15cfY2hhbmdlIHRoaXMgc2FsdCVdliiOKhPuOKa6UziNh57NlKjkT00L+WtGkRiiPc4D",
+  "createdOn" : "2014-07-26T03:06:10Z",
+  "updatedOn" : "2014-07-26T03:06:10Z",
   "softDeleted" : false,
-  "roles" : ["ZoopAdmin"],
-  "apiCredentials": [
-      {
-          "key": "zoop",
-          "secret": "uvBAJc3X"
-      }
-  ],
+  "password" : "$2y$10$cGFzc3dvcmRwYXNzd29yZ.jrkSn9Ipc1D4J9voD5AyNUkmiTuwgbq",
+  "salt" : "passwordpasswordpasswordpasswordpassword",
+  "roles" : ["zoop-admin"],
   "type" : "ZoopAdmin"
 }
