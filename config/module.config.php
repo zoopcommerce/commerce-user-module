@@ -2,7 +2,6 @@
 
 $mongoConnectionString = 'mongodb://localhost:27017';
 $mongoZoopDatabase = 'zoop_development';
-$mysqlZoopDatabase = 'zoop_development';
 
 return [
     'doctrine' => [
@@ -95,6 +94,9 @@ return [
                     'service_manager_config' => [
                         'abstract_factories' => [
                             'Zoop\ShardModule\Service\UserAbstractFactory'
+                        ],
+                        'factories' => [
+                            'crypt.emailaddress' => 'Zoop\GomiModule\Service\CryptEmailAddressFactory',
                         ]
                     ]
                 ],
@@ -119,6 +121,7 @@ return [
                             'Zoop\ShardModule\Service\UserAbstractFactory'
                         ],
                         'factories' => [
+                            'crypt.emailaddress' => 'Zoop\GomiModule\Service\CryptEmailAddressFactory',
                             'modelmanager' => 'Zoop\Common\Database\Service\UserAuthDocumentManagerFactory',
                             'eventmanager' => 'Zoop\ShardModule\Service\EventManagerFactory'
                         ]
