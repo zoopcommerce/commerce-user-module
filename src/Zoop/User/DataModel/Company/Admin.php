@@ -14,10 +14,7 @@ use Zoop\Shard\Annotation\Annotations as Shard;
 
 /**
  * @ODM\Document
- * 
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles="*", allow="read"),
- *     @Shard\Permission\Basic(roles="sys::auth-user", allow="*"),
  *     @Shard\Permission\Basic(roles="zoop-admin", allow="*"),
  *     @Shard\Permission\Basic(roles="partner-admin", allow="*"),
  *     @Shard\Permission\Basic(roles="company-admin", allow="*")
