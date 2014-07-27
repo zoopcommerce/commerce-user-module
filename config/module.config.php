@@ -119,6 +119,7 @@ return [
                             'Zoop\ShardModule\Service\UserAbstractFactory'
                         ],
                         'factories' => [
+                            'crypt.emailaddress' => 'Zoop\GomiModule\Service\CryptEmailAddressFactory',
                             'modelmanager' => 'Zoop\Common\Database\Service\UserAuthDocumentManagerFactory',
                             'eventmanager' => 'Zoop\ShardModule\Service\EventManagerFactory'
                         ]
