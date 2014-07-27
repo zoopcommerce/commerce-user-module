@@ -17,8 +17,9 @@ class HttpAdapter extends ZendHttpAdapter
     public function authenticate()
     {
         if (empty($this->request)) {
+            $this->getResponse()->setStatusCode(401);
             throw new Exception\RuntimeException(
-                'Request and Response objects must be set before calling authenticate()'
+                'You do not have permission to access this resource.'
             );
         }
 
