@@ -2,9 +2,9 @@
 
 namespace Zoop\User\DataModel\Partner;
 
+use Zoop\Common\User\PasswordInterface;
 use Zoop\Common\User\RoleAwareUserInterface;
-use Zoop\Common\User\UserInterface as CommonUserInterface;
-use Zoop\User\DataModel\UserInterface;
+use Zoop\Common\User\UserInterface;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\Roles;
 //Annotation imports
@@ -14,16 +14,14 @@ use Zoop\Shard\Annotation\Annotations as Shard;
 /**
  * @ODM\Document
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles="*", allow="read"),
- *     @Shard\Permission\Basic(roles="sys::auth-user", allow="*"),
  *     @Shard\Permission\Basic(roles="zoop-admin", allow="*"),
  *     @Shard\Permission\Basic(roles="partner-admin", allow="*"),
  *     @Shard\Permission\Basic(roles="company-admin", deny="*")
  * })
  */
-class Admin extends AbstractUser implements 
+class Admin extends AbstractUser implements
+    PasswordInterface,
     UserInterface,
-    CommonUserInterface,
     RoleAwareUserInterface
 {
     /**

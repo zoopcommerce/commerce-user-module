@@ -19,7 +19,7 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     @Shard\Permission\Basic(roles="company-admin", deny="*")
  * })
  */
-class Admin extends AbstractUser implements 
+class Admin extends AbstractUser implements
     PasswordInterface,
     UserInterface,
     RoleAwareUserInterface
