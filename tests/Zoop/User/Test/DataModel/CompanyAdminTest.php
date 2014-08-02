@@ -5,12 +5,12 @@ namespace Zoop\User\Test\DataModel;
 use Zoop\Shard\AccessControl\Events as AccessControlEvents;
 use Zoop\GomiModule\DataModel\User;
 use Zoop\User\Test\AbstractTest;
-use Zoop\User\DataModel\Zoop\Admin as ZoopAdmin;
+use Zoop\User\DataModel\Company\Admin as CompanyAdmin;
 use Zoop\User\Roles;
 
-class UsersTest extends AbstractTest
+class CompanyAdminTest extends AbstractTest
 {
-    public function testCreateZoopAdminFail()
+    public function testCreateFail()
     {
         $dm = self::getDocumentManager();
         
@@ -26,16 +26,19 @@ class UsersTest extends AbstractTest
         $serviceLocator->setAllowOverride(true);
         $serviceLocator->setService('user', $sysUser);
 
-        $email = 'josh.stuart@zoopcommerce.com';
-        $username = 'joshstuart';
+        $email = 'jean-marc@nespresso.com';
+        $username = 'nespresso';
         $password = 'password1';
 
-        $user = new ZoopAdmin;
+        $user = new CompanyAdmin;
         $user->setEmail($email);
-        $user->setFirstName('Josh');
-        $user->setLastName('Stuart');
+        $user->setFirstName('Jean-Marc');
+        $user->setLastName('Duvoisin');
         $user->setUsername($username);
         $user->setPassword($password);
+        
+        $user->addStore('nespresso-en-us');
+        $user->addStore('nespresso-en-au');
 
         $dm->persist($user);
         $dm->flush($user);
@@ -43,7 +46,7 @@ class UsersTest extends AbstractTest
         $this->assertTrue(isset($this->calls[AccessControlEvents::CREATE_DENIED]));
     }
     
-    public function testCreateZoopAdminSuccess()
+    public function testCreateSuccess()
     {
         $dm = self::getDocumentManager();
         $serviceLocator = $this->getApplicationServiceLocator()
@@ -51,20 +54,23 @@ class UsersTest extends AbstractTest
         
         //set auth user
         $sysUser = new User;
-        $sysUser->addRole(Roles::ZOOP_ADMIN);
+        $sysUser->addRole(Roles::PARTNER_ADMIN);
         $serviceLocator->setAllowOverride(true);
         $serviceLocator->setService('user', $sysUser);
 
-        $email = 'josh.stuart@zoopcommerce.com';
-        $username = 'joshstuart';
+        $email = 'jean-marc@nespresso.com';
+        $username = 'nespresso';
         $password = 'password1';
 
-        $user = new ZoopAdmin;
+        $user = new CompanyAdmin;
         $user->setEmail($email);
-        $user->setFirstName('Josh');
-        $user->setLastName('Stuart');
+        $user->setFirstName('Jean-Marc');
+        $user->setLastName('Duvoisin');
         $user->setUsername($username);
         $user->setPassword($password);
+        
+        $user->addStore('nespresso-en-us');
+        $user->addStore('nespresso-en-au');
 
         $dm->persist($user);
         $dm->flush($user);
@@ -73,7 +79,7 @@ class UsersTest extends AbstractTest
 
         $user = $this->getUser($username);
         
-        $this->assertTrue($user instanceof ZoopAdmin);
+        $this->assertTrue($user instanceof CompanyAdmin);
         $this->assertEquals($username, $user->getUsername());
         $this->assertNotEquals($email, $user->getEmail());
         

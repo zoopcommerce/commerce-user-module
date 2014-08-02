@@ -13,6 +13,7 @@ use Zoop\Shard\Annotation\Annotations as Shard;
 
 /**
  * @ODM\Document
+ * @ODM\HasLifecycleCallbacks
  * @Shard\AccessControl({
  *     @Shard\Permission\Basic(roles={"sys::authenticate", "owner"}, allow="read"),
  *     @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles"),
@@ -27,8 +28,10 @@ class Admin extends AbstractUser implements
     UserInterface,
     RoleAwareUserInterface
 {
-    public function __construct()
-    {
-        $this->addRole(Roles::ZOOP_ADMIN);
-    }
+    /**
+     * @ODM\Collection
+     */
+    protected $roles = [
+        Roles::ZOOP_ADMIN
+    ];
 }

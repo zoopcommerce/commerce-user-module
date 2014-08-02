@@ -2,18 +2,13 @@
   "_id" : "bigspaceship",
   "firstName" : "Michael",
   "lastName" : "Lebowitz",
-  "email" : "michael@bigspaceship.com",
-  "password" : "$2y$10$MzQ5MDU4QkpnaTc4OXlqauItvJs88PQAryshR.UXwC4chuTOV8Ci2",
-  "createdOn" : "2014-07-08T10:16:32Z",
-  "updatedOn" : "2014-07-08T10:16:32Z",
+  "email" : "c7d7a35980358bb80e1bb2c3c3977685363f967dcde61915a3d647f620819b67Y2hhbmdlIHRoaXMgc2FsdJovGUzuEbwQXNCOpDr8oSALX8JvhecnRXnf8CLZQ8Rd",
+  "createdOn" : "2014-08-02T06:36:42Z",
+  "updatedOn" : "2014-08-02T06:36:42Z",
   "softDeleted" : false,
-  "roles" : ["PartnerAdmin"],
-  "apiCredentials": [
-      {
-          "key": "partner",
-          "secret": "HVa2YyTJ"
-      }
-  ],
+  "password" : "$2y$10$UHlVZ0YrbGhITTlUOEJPQOqgcLICqS5mjqPZr0YvmweeBcXk9ZOCe",
+  "salt" : "PyUgF+lhHM9T8BOAarTmsTg+2xe8we",
+  "roles" : ["partner-admin"],
   "merchants" : ["nestle", "bmw", "youtube"],
   "type" : "PartnerAdmin"
 }

@@ -30,8 +30,10 @@ class Admin extends AbstractUser implements
 {
     use StoresTrait;
     
-    public function __construct()
-    {
-        $this->addRole(Roles::COMPANY_ADMIN);
-    }
+    /**
+     * @ODM\Collection
+     */
+    protected $roles = [
+        Roles::COMPANY_ADMIN
+    ];
 }

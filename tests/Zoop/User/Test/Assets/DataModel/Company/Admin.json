@@ -2,12 +2,13 @@
   "_id" : "nespresso",
   "firstName" : "Jean-Marc",
   "lastName" : "Duvoisin",
-  "email" : "jean-marc@nespresso.com",
-  "password" : "$2y$10$MzQ5MDU4QkpnaTc4OXlqauItvJs88PQAryshR.UXwC4chuTOV8Ci2",
-  "createdOn" : "2014-07-08T10:16:32Z",
-  "updatedOn" : "2014-07-08T10:16:32Z",
+  "email" : "ba8dde2583f9f44b25622baabdd4e8faef680a0ffe67bc13901cda44de227bd8Y2hhbmdlIHRoaXMgc2FsdA5fB/nhv793QV4Uh1DkF3dDIC0vxnn2xujz693iOdh4",
+  "createdOn" : "2014-08-02T06:44:19Z",
+  "updatedOn" : "2014-08-02T06:44:19Z",
   "softDeleted" : false,
-  "roles" : ["CompanyAdmin"],
+  "password" : "$2y$10$NXFxVEd1Snd6RzlvUFVNaO8ddm54rDR9xGfPDb6y8vW7wVpmhnWY2",
+  "salt" : "5qqTGuJwzG9oPUMiC7GmgQz+g5xX+i",
+  "roles" : ["company-admin"],
   "stores" : ["nespresso-en-us", "nespresso-en-au"],
   "type" : "CompanyAdmin"
 }

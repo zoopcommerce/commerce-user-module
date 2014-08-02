@@ -12,7 +12,6 @@ use Zoop\User\DataModel\Company\Admin as CompanyAdmin;
 
 class TestData
 {
-
     const DOCUMENT_USER = 'Zoop\User\DataModel\Abstract';
     const ZOOP_ADMIN_USER = 'Zoop\User\DataModel\Zoop\Admin';
     const PARTNER_ADMIN_USER = 'Zoop\User\DataModel\Partner\Admin';

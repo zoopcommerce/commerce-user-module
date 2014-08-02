@@ -43,8 +43,8 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles"),
  *     @Shard\Permission\Basic(roles="sys::recoverpassword", allow="update::password"),
  *     @Shard\Permission\Basic(roles="zoop-admin", allow="*"),
- *     @Shard\Permission\Basic(roles="partner-admin", deny="*"),
- *     @Shard\Permission\Basic(roles="company-admin", deny="*")
+ *     @Shard\Permission\Basic(roles="partner-admin", allow="read"),
+ *     @Shard\Permission\Basic(roles="company-admin", allow="read")
  * })
  */
 class AbstractUser

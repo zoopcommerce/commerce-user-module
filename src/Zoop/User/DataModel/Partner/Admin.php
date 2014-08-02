@@ -18,7 +18,7 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles"),
  *     @Shard\Permission\Basic(roles="sys::recoverpassword", allow="update::password"),
  *     @Shard\Permission\Basic(roles="zoop-admin", allow="*"),
- *     @Shard\Permission\Basic(roles="partner-admin", allow="create"),
+ *     @Shard\Permission\Basic(roles="partner-admin", allow="*", deny="update::roles"),
  *     @Shard\Permission\Basic(roles="company-admin", deny="*")
  * })
  */
@@ -29,14 +29,16 @@ class Admin extends AbstractUser implements
 {
     /**
      * @ODM\Collection
+     */
+    protected $roles = [
+        Roles::PARTNER_ADMIN
+    ];
+    
+    /**
+     * @ODM\Collection
      * @ODM\Index
      */
     protected $merchants = [];
-    
-    public function __construct()
-    {
-        $this->addRole(Roles::PARTNER_ADMIN);
-    }
 
     /**
      * @return array
