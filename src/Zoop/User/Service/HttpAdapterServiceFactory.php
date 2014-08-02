@@ -19,7 +19,6 @@ class HttpAdapterServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-
         $return = new HttpAdapter(
             [
                 'realm' => 'zoop',

@@ -17,7 +17,7 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     protected static $dbName;
     protected static $manifest;
     protected static $unserializer;
-    public $calls;
+    public $calls = [];
 
     public function setUp()
     {
@@ -25,22 +25,20 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
             require __DIR__ . '/../../../test.application.config.php'
         );
         
-        if(!isset(self::$documentManager)) {
-            self::$documentManager = $this->getApplicationServiceLocator()
-                ->get('doctrine.odm.documentmanager.commerce');
-            
-            self::$dbName = $this->getApplicationServiceLocator()
-                ->get('config')['doctrine']['odm']['connection']['commerce']['dbname'];
-            
-            self::$manifest = $this->getApplicationServiceLocator()
-                ->get('shard.commerce.manifest');
+        self::$documentManager = $this->getApplicationServiceLocator()
+            ->get('doctrine.odm.documentmanager.commerce');
 
-            self::$unserializer = self::$manifest->getServiceManager()
-                ->get('unserializer');
-            
-            $eventManager = self::$documentManager->getEventManager();
-            $eventManager->addEventListener(Events::EXCEPTION, $this);
-        }
+        self::$dbName = $this->getApplicationServiceLocator()
+            ->get('config')['doctrine']['odm']['connection']['commerce']['dbname'];
+
+        self::$manifest = $this->getApplicationServiceLocator()
+            ->get('shard.commerce.manifest');
+
+        self::$unserializer = self::$manifest->getServiceManager()
+            ->get('unserializer');
+
+//        $eventManager = self::$documentManager->getEventManager();
+//        $eventManager->addEventListener(Events::EXCEPTION, $this);
     }
 
     public static function tearDownAfterClass()
@@ -100,8 +98,12 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
 
     public function __call($name, $arguments)
     {
-        var_dump($name, $arguments);
-        $this->calls[$name] = $arguments;
+        if(isset($arguments[0]) && method_exists($arguments[0], 'getName')) {
+            $exception = $arguments[0];
+            $this->calls[$exception->getName()] = $exception->getInnerEvent();
+        } else {
+            $this->calls[$name] = $arguments;
+        }
     }
     
     /**

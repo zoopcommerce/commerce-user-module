@@ -1,32 +1,36 @@
 <?php
 
-namespace Zoop\User\Test\Services;
+namespace Zoop\User\Test\Controller;
 
 use Zend\Http\Header\Accept;
 use Zend\Http\Header\ContentType;
 use Zend\Http\Header\Origin;
 use Zend\Http\Header\Host;
 use Zend\Http\Header\GenericHeader;
+use Zend\Http\Request;
 use Zoop\User\Test\AbstractTest;
-use Zoop\User\Test\Assets\TestData;
-use Zoop\User\DataModel\Zoop\Admin as ZoopAdmin;
+use Zoop\User\Test\Assets\TestJsonData;
 
-class AuthenticationOld extends AbstractTest
+class ZoopAdminTest extends AbstractTest
 {
+    private static $zoopAdminKey = 'joshstuart';
+    private static $zoopAdminSecret = 'password1';
+    
     protected function tearDown()
     {
         self::clearDb();
     }
     
-    public function testAuthenticatedZoopAdminUser()
+    public function setUp()
     {
-        TestData::createZoopAdminUser(self::getDocumentManager(), self::getDbName());
-        TestData::createPartnerAdminUser(self::getDocumentManager(), self::getDbName());
-        TestData::createCompanyAdminUser(self::getDocumentManager(), self::getDbName());
-        
-        $key = 'zoop';
-        $secret = 'uvBAJc3X';
-        
+        parent::setUp();
+        TestJsonData::createZoopAdminUser(self::getDocumentManager(), self::getDbName());
+        TestJsonData::createPartnerAdminUser(self::getDocumentManager(), self::getDbName());
+        TestJsonData::createCompanyAdminUser(self::getDocumentManager(), self::getDbName());
+    }
+    
+    public function testGetUsers()
+    {
         $accept = new Accept;
         $accept->addMediaType('application/json');
         
@@ -38,10 +42,10 @@ class AuthenticationOld extends AbstractTest
                 Origin::fromString('Origin: http://api.zoopcommerce.local/ping'), 
                 Host::fromString('Host: api.zoopcommerce.local'),
                 ContentType::fromString('Content-type: application/json'),
-                GenericHeader::fromString('Authorization: Basic ' . base64_encode(sprintf('%s:%s', $key, $secret)))
+                GenericHeader::fromString('Authorization: Basic ' . base64_encode(sprintf('%s:%s', self::$zoopAdminKey, self::$zoopAdminSecret)))
             ]);
         
-        $this->dispatch('http://test.local/test');
+        $this->dispatch('http://api.zoopcommerce.local/users');
         $response = $this->getResponse();
         
         $this->assertResponseStatusCode(200);
@@ -56,47 +60,33 @@ class AuthenticationOld extends AbstractTest
         $user = $content[0];
         
         $this->assertEquals('joshstuart', $user['username']);
-        $this->assertEquals('josh@zoopcommerce.com', $user['email']);
         $this->assertEquals('Josh', $user['firstName']);
         $this->assertEquals('Stuart', $user['lastName']);
         $this->assertEquals('ZoopAdmin', $user['type']);
     }
     
-    public function testAuthenticatedPartnerAdminUser()
+    public function testCreateUser()
     {
-        TestData::createZoopAdminUser(self::getDocumentManager(), self::getDbName());
-        TestData::createPartnerAdminUser(self::getDocumentManager(), self::getDbName());
-        TestData::createCompanyAdminUser(self::getDocumentManager(), self::getDbName());
-        
-        $key = 'partner';
-        $secret = 'HVa2YyTJ';
-        
         $accept = new Accept;
         $accept->addMediaType('application/json');
         
         $request = $this->getRequest();
         
-        $request->setMethod('GET')
+        $userData = TestJsonData::getCreateZoopAdminUser();
+        
+        $request->setMethod('POST')
+            ->setContent($userData)
             ->getHeaders()->addHeaders([
                 $accept,
                 Origin::fromString('Origin: http://api.zoopcommerce.local/ping'), 
                 Host::fromString('Host: api.zoopcommerce.local'),
                 ContentType::fromString('Content-type: application/json'),
-                GenericHeader::fromString('Authorization: Basic ' . base64_encode(sprintf('%s:%s', $key, $secret)))
-        ]);
+                GenericHeader::fromString('Authorization: Basic ' . base64_encode(sprintf('%s:%s', self::$zoopAdminKey, self::$zoopAdminSecret)))
+            ]);
         
         $this->dispatch('http://api.zoopcommerce.local/users');
         $response = $this->getResponse();
         
-        $this->assertResponseStatusCode(200);
-        
-        $json = $response->getContent();
-        $this->assertJson($json);
-        
-        $content = json_decode($json, true);
-        
-        $this->assertCount(2, $content);
-        
-        $user = $content[0];
+        $this->assertResponseStatusCode(201);
     }
 }

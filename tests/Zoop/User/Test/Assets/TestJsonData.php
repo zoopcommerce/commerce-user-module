@@ -3,11 +3,18 @@
 namespace Zoop\User\Test\Assets;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
-use Zoop\User\DataModel\Zoop\Admin as ZoopAdmin;
 
 class TestJsonData
 {
-
+    /**
+     * @param DocumentManager $dm
+     * @param string $dbName
+     */
+    public static function getCreateZoopAdminUser()
+    {
+        return self::getJson('DataModel/Zoop/CreateAdmin');
+    }
+    
     /**
      * @param DocumentManager $dm
      * @param string $dbName

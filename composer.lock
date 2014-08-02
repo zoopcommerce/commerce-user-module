@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.6.12",
+            "version": "2.6.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "88d075461e95111a5e42ead60c68e847c1856cc3"
+                "reference": "d1f345a65b490bd83fff735d8a9e49b224ce24b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/88d075461e95111a5e42ead60c68e847c1856cc3",
-                "reference": "88d075461e95111a5e42ead60c68e847c1856cc3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d1f345a65b490bd83fff735d8a9e49b224ce24b5",
+                "reference": "d1f345a65b490bd83fff735d8a9e49b224ce24b5",
                 "shasum": ""
             },
             "require": {
@@ -72,7 +72,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-07-16 21:01:13"
+            "time": "2014-07-31 20:34:29"
         },
         {
             "name": "codeguy/upload",
@@ -1783,12 +1783,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-api-module.git",
-                "reference": "043cd89bcc160e2416418a9a330a341e5397c605"
+                "reference": "97cf920b126bf31a16c4de4b192f44a74e12dc13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-api-module/zipball/043cd89bcc160e2416418a9a330a341e5397c605",
-                "reference": "043cd89bcc160e2416418a9a330a341e5397c605",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-api-module/zipball/97cf920b126bf31a16c4de4b192f44a74e12dc13",
+                "reference": "97cf920b126bf31a16c4de4b192f44a74e12dc13",
                 "shasum": ""
             },
             "require": {
@@ -1845,7 +1845,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-api-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-api-module/issues"
             },
-            "time": "2014-07-22 09:07:57"
+            "time": "2014-07-27 05:30:49"
         },
         {
             "name": "zoopcommerce/commerce-common-module",
@@ -1925,12 +1925,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-store-module.git",
-                "reference": "2643e86e6d066847a95d89f4646d259c0e5e2e8f"
+                "reference": "031e5999551d18fb94abe52d017b47b219376ab5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-store-module/zipball/2643e86e6d066847a95d89f4646d259c0e5e2e8f",
-                "reference": "2643e86e6d066847a95d89f4646d259c0e5e2e8f",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-store-module/zipball/031e5999551d18fb94abe52d017b47b219376ab5",
+                "reference": "031e5999551d18fb94abe52d017b47b219376ab5",
                 "shasum": ""
             },
             "require": {
@@ -1990,7 +1990,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-store-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-store-module/issues"
             },
-            "time": "2014-07-22 09:00:52"
+            "time": "2014-07-27 02:44:02"
         },
         {
             "name": "zoopcommerce/common",
@@ -2032,16 +2032,16 @@
         },
         {
             "name": "zoopcommerce/gateway-module",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zoopcommerce/gateway-module.git",
-                "reference": "83293ac0fd10c39cfe9a53e2cabd3ab258d5162b"
+                "reference": "18eb1a34baa24a1c362c632d9904e1efae49361e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/gateway-module/zipball/83293ac0fd10c39cfe9a53e2cabd3ab258d5162b",
-                "reference": "83293ac0fd10c39cfe9a53e2cabd3ab258d5162b",
+                "url": "https://api.github.com/repos/zoopcommerce/gateway-module/zipball/18eb1a34baa24a1c362c632d9904e1efae49361e",
+                "reference": "18eb1a34baa24a1c362c632d9904e1efae49361e",
                 "shasum": ""
             },
             "require": {
@@ -2051,7 +2051,7 @@
                 "doctrine/mongodb-odm": "dev-hotfix719 as 1.0.0-BETA9",
                 "php": ">=5.4",
                 "zendframework/zendframework": "2.3.1",
-                "zoopcommerce/gomi-module": "~2.0"
+                "zoopcommerce/gomi-module": "~2.1"
             },
             "require-dev": {
                 "pdepend/pdepend": "1.1.1",
@@ -2089,20 +2089,20 @@
                 "zf2",
                 "zoop"
             ],
-            "time": "2014-07-21 13:23:02"
+            "time": "2014-07-31 07:30:25"
         },
         {
             "name": "zoopcommerce/gomi-module",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zoopcommerce/gomi-module.git",
-                "reference": "b54b75a66e7760ae21d89600d5493682201beda5"
+                "reference": "335e2525d815a3c3ec114b8512865f9f794b0e2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/gomi-module/zipball/b54b75a66e7760ae21d89600d5493682201beda5",
-                "reference": "b54b75a66e7760ae21d89600d5493682201beda5",
+                "url": "https://api.github.com/repos/zoopcommerce/gomi-module/zipball/335e2525d815a3c3ec114b8512865f9f794b0e2b",
+                "reference": "335e2525d815a3c3ec114b8512865f9f794b0e2b",
                 "shasum": ""
             },
             "require": {
@@ -2145,7 +2145,7 @@
                 "zf2",
                 "zoop"
             ],
-            "time": "2014-07-21 13:15:50"
+            "time": "2014-07-31 05:10:17"
         },
         {
             "name": "zoopcommerce/juggernaut",

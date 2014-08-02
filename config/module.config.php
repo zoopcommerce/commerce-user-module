@@ -8,7 +8,7 @@ return [
         'authentication' => [
             'adapter' => [
                 'default' => [
-                    'object_manager' => 'doctrine.odm.documentmanager.userauth',
+                    'object_manager' => 'doctrine.odm.documentmanager.commerce',
                     'identity_class' => 'Zoop\User\DataModel\AbstractUser',
                     'identity_property' => 'username',
                     'credential_property' => 'password'
@@ -20,38 +20,6 @@ return [
                 ]
             ],
         ],
-        'odm' => [
-            'connection' => [
-                'userauth' => [
-                    'dbname' => $mongoZoopDatabase,
-                    'connectionString' => $mongoConnectionString,
-                ],
-            ],
-            'configuration' => [
-                'userauth' => [
-                    'class_metadata_factory_name' => 'Zoop\Shard\ODMCore\ClassMetadataFactory',
-                    'metadata_cache' => 'doctrine.cache.juggernaut.filesystem',
-                    'generate_proxies' => false,
-                    'proxy_dir' => __DIR__ . '/../data/proxies',
-                    'proxy_namespace' => 'proxies',
-                    'generate_hydrators' => false,
-                    'hydrator_dir' => __DIR__ . '/../data/hydrators',
-                    'hydrator_namespace' => 'hydrators',
-                    'default_db' => $mongoZoopDatabase,
-                    'driver' => 'doctrine.driver.default',
-                ]
-            ],
-            'documentmanager' => [
-                'userauth' => [
-                    'connection' => 'doctrine.odm.connection.userauth',
-                    'configuration' => 'doctrine.odm.configuration.userauth',
-                    'eventmanager' => 'doctrine.eventmanager.userauth'
-                ]
-            ],
-            'eventmanager' => [
-                'userauth' => [],
-            ],
-        ],
     ],
     'zoop' => [
         'api' => [
@@ -60,14 +28,14 @@ return [
             ]
         ],
         'gateway' => [
-            'document_manager' => 'doctrine.odm.documentmanager.userauth',
-            'shard_manifest' => 'userauth',
+            'document_manager' => 'doctrine.odm.documentmanager.commerce',
+            'shard_manifest' => 'commerce',
             'authentication_service_options' => [
                 'enable_per_request' => true,
                 'enable_per_session' => false,
                 'enable_remember_me' => false,
                 'per_request_adapter' => 'Zoop\User\HttpAdapter',
-            ]
+            ],
         ],
         'user' => [
             'crypt' => [
@@ -100,33 +68,6 @@ return [
                         ]
                     ]
                 ],
-                'userauth' => [
-                    'model_manager' => 'doctrine.odm.documentmanager.userauth',
-                    'extension_configs' => [
-                        'extension.odmcore' => true,
-                        'extension.softDelete' => true,
-                        'extension.accesscontrol' => false,
-                        'extension.crypt' => true,
-                        'extension.serializer' => true,
-                        'extension.validator' => true,
-                        'extension.stamp' => true,
-                        'extension.state' => true,
-                        'extension.zone' => true
-                    ],
-                    'models' => [
-                        'Zoop\User\DataModel' => __DIR__ . '/../src/Zoop/User/DataModel'
-                    ],
-                    'service_manager_config' => [
-                        'abstract_factories' => [
-                            'Zoop\ShardModule\Service\UserAbstractFactory'
-                        ],
-                        'factories' => [
-                            'crypt.emailaddress' => 'Zoop\GomiModule\Service\CryptEmailAddressFactory',
-                            'modelmanager' => 'Zoop\Common\Database\Service\UserAuthDocumentManagerFactory',
-                            'eventmanager' => 'Zoop\ShardModule\Service\EventManagerFactory'
-                        ]
-                    ]
-                ]
             ],
             'rest' => [
                 'rest' => [
@@ -135,8 +76,18 @@ return [
                         'class' => 'Zoop\User\DataModel\AbstractUser',
                         'property' => 'username',
                         'listeners' => [
-                            'create' => [],
-                            'delete' => [],
+                            'create' => [
+                                'zoop.shardmodule.listener.unserialize',
+                                'zoop.shardmodule.listener.create',
+                                'zoop.shardmodule.listener.flush',
+                                'zoop.shardmodule.listener.location',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
+                            'delete' => [
+                                'zoop.shardmodule.listener.delete',
+                                'zoop.shardmodule.listener.flush',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
                             'deleteList' => [],
                             'get' => [
                                 'zoop.shardmodule.listener.get',
@@ -148,11 +99,26 @@ return [
                                 'zoop.shardmodule.listener.serialize',
                                 'zoop.shardmodule.listener.prepareviewmodel'
                             ],
-                            'options' => [],
-                            'patch' => [],
+                            'patch' => [
+                                'zoop.shardmodule.listener.unserialize',
+                                'zoop.shardmodule.listener.idchange',
+                                'zoop.shardmodule.listener.patch',
+                                'zoop.shardmodule.listener.flush',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
                             'patchList' => [],
-                            'update' => [],
+                            'update' => [
+                                'zoop.shardmodule.listener.unserialize',
+                                'zoop.shardmodule.listener.idchange',
+                                'zoop.shardmodule.listener.update',
+                                'zoop.shardmodule.listener.flush',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
                             'replaceList' => [],
+                            'options' => [
+                                'zoop.shardmodule.listener.options',
+                                'zoop.shardmodule.listener.prepareviewmodel'
+                            ],
                         ],
                     ],
                 ]
