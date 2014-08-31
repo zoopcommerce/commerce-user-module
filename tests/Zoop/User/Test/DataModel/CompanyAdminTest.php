@@ -41,7 +41,8 @@ class CompanyAdminTest extends AbstractTest
         $user->addStore('nespresso-en-au');
 
         $dm->persist($user);
-        $dm->flush($user);
+        $dm->flush();
+        $dm->clear();
         
         $this->assertTrue(isset($this->calls[AccessControlEvents::CREATE_DENIED]));
     }
@@ -73,8 +74,8 @@ class CompanyAdminTest extends AbstractTest
         $user->addStore('nespresso-en-au');
 
         $dm->persist($user);
-        $dm->flush($user);
-        $dm->clear($user);
+        $dm->flush();
+        $dm->clear();
         unset($user);
 
         $user = $this->getUser($username);
@@ -89,6 +90,6 @@ class CompanyAdminTest extends AbstractTest
         
         $this->assertEquals($email, $user->getEmail());
         $this->assertNotEquals($password, $user->getPassword());
-        $dm->clear($user);
+        $dm->clear();
     }
 }

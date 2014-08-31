@@ -38,34 +38,34 @@ class Admin extends AbstractUser implements
      * @ODM\Collection
      * @ODM\Index
      */
-    protected $merchants = [];
+    protected $companies = [];
 
     /**
      * @return array
      */
-    public function getMerchants()
+    public function getCompanies()
     {
-        if (!is_array($this->merchants)) {
-            $this->merchants = [];
+        if (!is_array($this->companies)) {
+            $this->companies = [];
         }
-        return $this->merchants;
+        return $this->companies;
     }
 
     /**
-     * @param array $merchants
+     * @param array $companies
      */
-    public function setMerchants(array $merchants)
+    public function setCompanies(array $companies)
     {
-        $this->merchants = $merchants;
+        $this->companies = $companies;
     }
 
     /**
-     * @param string $merchant
+     * @param string $company
      */
-    public function addMerchant($merchant)
+    public function addCompany($company)
     {
-        if (!empty($merchant) && in_array($merchant, $this->getMerchants()) === false) {
-            $this->merchants[] = $merchant;
+        if (!empty($company) && in_array($company, $this->getCompanies()) === false) {
+            $this->companies[] = $company;
         }
     }
 }

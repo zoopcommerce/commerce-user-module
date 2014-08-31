@@ -5,7 +5,7 @@ namespace Zoop\User\DataModel\Company;
 use Zoop\Common\User\PasswordInterface;
 use Zoop\Common\User\RoleAwareUserInterface;
 use Zoop\Common\User\UserInterface;
-use Zoop\Store\DataModel\StoresTrait;
+use Zoop\User\DataModel\StoresTrait;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\Roles;
 //Annotation imports

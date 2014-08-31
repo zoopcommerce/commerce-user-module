@@ -142,7 +142,7 @@ class AbstractUser
      */
     public function getApiCredentials()
     {
-        if(!$this->apiCredentials instanceof ArrayCollection) {
+        if (!$this->apiCredentials instanceof ArrayCollection) {
             $this->apiCredentials = new ArrayCollection;
         }
         return $this->apiCredentials;

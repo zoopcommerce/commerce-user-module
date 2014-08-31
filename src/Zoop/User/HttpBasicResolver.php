@@ -12,6 +12,7 @@ use Zend\Authentication\Result;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 use Zoop\Shard\Manifest;
+
 /**
  * 
  * @author Josh Stuart <josh.stuart@zoopcommerce.com>
@@ -50,6 +51,8 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
      * @param string $realm
      * @param string|null $password
      * @return AbstractUser|null
+     * 
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     protected function getUserFromHttpAuth($username, $realm, $password = null)
     {

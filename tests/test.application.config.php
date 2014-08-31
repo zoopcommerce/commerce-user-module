@@ -11,7 +11,7 @@ return [
         'Zoop\Api',
         'Zoop\Common',
         'Zoop\User',
-        'Zoop\Store'
+        'Zoop\Test'
     ],
     'module_listener_options' => [
         'config_glob_paths' => [

@@ -17,7 +17,7 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     @Shard\Permission\Basic(roles="*", allow="*")
  * })
  */
-class System extends AbstractUser implements 
+class System extends AbstractUser implements
     UserInterface,
     CommonUserInterface,
     RoleAwareUserInterface

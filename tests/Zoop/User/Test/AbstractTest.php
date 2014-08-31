@@ -2,18 +2,20 @@
 
 namespace Zoop\User\Test;
 
-use Zoop\Store\DataModel\Store;
+use Zend\Http\Header\Accept;
+use Zend\Http\Header\ContentType;
+use Zend\Http\Header\GenericHeader;
 use Zoop\User\DataModel\AbstractUser;
 use Zend\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Zoop\Shard\Core\Events;
 use Zoop\Shard\Manifest;
 use Zoop\Shard\Serializer\Unserializer;
-use Zoop\User\Test\Assets\TestData;
 
 abstract class AbstractTest extends AbstractHttpControllerTestCase
 {
     protected static $documentManager;
+    protected static $noAuthDocumentManager;
     protected static $dbName;
     protected static $manifest;
     protected static $unserializer;
@@ -28,6 +30,9 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
         self::$documentManager = $this->getApplicationServiceLocator()
             ->get('doctrine.odm.documentmanager.commerce');
 
+        self::$noAuthDocumentManager = $this->getApplicationServiceLocator()
+            ->get('doctrine.odm.documentmanager.noauth');
+
         self::$dbName = $this->getApplicationServiceLocator()
             ->get('config')['doctrine']['odm']['connection']['commerce']['dbname'];
 
@@ -37,8 +42,8 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
         self::$unserializer = self::$manifest->getServiceManager()
             ->get('unserializer');
 
-//        $eventManager = self::$documentManager->getEventManager();
-//        $eventManager->addEventListener(Events::EXCEPTION, $this);
+        $eventManager = self::$documentManager->getEventManager();
+        $eventManager->addEventListener(Events::EXCEPTION, $this);
     }
 
     public static function tearDownAfterClass()
@@ -50,7 +55,7 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     {
         $documentManager = self::getDocumentManager();
         
-        if($documentManager instanceof DocumentManager) {
+        if ($documentManager instanceof DocumentManager) {
             $collections = $documentManager->getConnection()
                 ->selectDatabase(self::getDbName())
                 ->listCollections();
@@ -68,6 +73,14 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     public static function getDocumentManager()
     {
         return self::$documentManager;
+    }
+
+    /**
+     * @return DocumentManager
+     */
+    public static function getNoAuthDocumentManager()
+    {
+        return self::$noAuthDocumentManager;
     }
 
     /**
@@ -95,16 +108,6 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
     {
         return self::$unserializer;
     }
-
-    public function __call($name, $arguments)
-    {
-        if(isset($arguments[0]) && method_exists($arguments[0], 'getName')) {
-            $exception = $arguments[0];
-            $this->calls[$exception->getName()] = $exception->getInnerEvent();
-        } else {
-            $this->calls[$name] = $arguments;
-        }
-    }
     
     /**
      * 
@@ -120,14 +123,33 @@ abstract class AbstractTest extends AbstractHttpControllerTestCase
             ->getQuery()
             ->getSingleResult();
     }
-
-    /**
-     * 
-     * @param array $data
-     * @return Store
-     */
-    public function createStore()
+    
+    public function applyUserToRequest($request, $key, $secret)
     {
-        TestData::createStore(self::getDocumentManager(), self::getDbName());
+        $request->getHeaders()->addHeaders([
+            GenericHeader::fromString('Authorization: Basic ' . base64_encode(sprintf('%s:%s', $key, $secret)))
+        ]);
+    }
+    
+    public function applyJsonRequest($request)
+    {
+        $accept = new Accept;
+        $accept->addMediaType('application/json');
+        
+        $request->getHeaders()
+            ->addHeaders([
+                $accept,
+                ContentType::fromString('Content-type: application/json'),
+            ]);
+    }
+
+    public function __call($name, $arguments)
+    {
+        if (isset($arguments[0]) && method_exists($arguments[0], 'getName')) {
+            $exception = $arguments[0];
+            $this->calls[$exception->getName()] = $exception->getInnerEvent();
+        } else {
+            $this->calls[$name] = $arguments;
+        }
     }
 }

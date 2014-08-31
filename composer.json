@@ -33,7 +33,7 @@
         },
         {
             "type": "vcs",
-            "url":  "git@github.com:zoopcommerce/commerce-store-module.git"
+            "url":  "git@github.com:zoopcommerce/commerce-test-data-module.git"
         },
         {
             "type": "vcs",
@@ -58,14 +58,15 @@
         "sendgrid/sendgrid"                         : "~2.1",
         "zoopcommerce/commerce-api-module"          : "dev-master",
         "zoopcommerce/commerce-common-module"       : "dev-master",
-        "zoopcommerce/commerce-store-module"        : "dev-master",
         "zoopcommerce/gateway-module"               : "~2.0",
         "zoopcommerce/shard-module"                 : "~4.0"
     },
     "require-dev": {
         "phpunit/phpunit"           : ">=3.7",
         "squizlabs/php_codesniffer" : "1.4.*",
-        "phpmd/phpmd"               : "1.4.*"
+        "phpmd/phpmd"               : "2.*",
+        "zoopcommerce/slipstream"   : "~0.1",
+        "zoopcommerce/commerce-test-data-module"    : "dev-master"
     },
     "autoload": {
         "psr-0": {

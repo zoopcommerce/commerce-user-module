@@ -38,7 +38,8 @@ class ZoopAdminTest extends AbstractTest
         $user->setPassword($password);
 
         $dm->persist($user);
-        $dm->flush($user);
+        $dm->flush();
+        $dm->clear();
         
         $this->assertTrue(isset($this->calls[AccessControlEvents::CREATE_DENIED]));
     }
@@ -67,8 +68,8 @@ class ZoopAdminTest extends AbstractTest
         $user->setPassword($password);
 
         $dm->persist($user);
-        $dm->flush($user);
-        $dm->clear($user);
+        $dm->flush();
+        $dm->clear();
         unset($user);
 
         $user = $this->getUser($username);
@@ -83,6 +84,6 @@ class ZoopAdminTest extends AbstractTest
         
         $this->assertEquals($email, $user->getEmail());
         $this->assertNotEquals($password, $user->getPassword());
-        $dm->clear($user);
+        $dm->clear();
     }
 }

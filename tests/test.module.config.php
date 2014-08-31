@@ -94,6 +94,16 @@ return [
                 'port' => 27017,
             ]
         ],
+        'shard' => [
+            'manifest' => [
+                'noauth' => [
+                    'models' => [
+                        'Zoop\User\DataModel' => __DIR__ . '/../src/Zoop/User/DataModel',
+                        'Zoop\Common\DataModel' => __DIR__ . '/../vendor/zoopcommerce/commerce-common-module/src/Zoop/Common/DataModel',
+                    ]
+                ]
+            ],
+        ],
     ],
     'controllers' => [
         'invokables' => [
