@@ -14,7 +14,7 @@ services:
   - mongodb
 
 env:
-    secure: cEAJp4ZGhAmb9RZuXKfPDcsbqnfABcd3RBFMnWlS6iLMEEswov6kpNGL/cfBhGl+dQcxMACBpr/7/0Ek/WdJoO8+pjRG+oMMbL4tZnvPor8QbmUjhtKt6ox1dO26Rggvk/ccmIMQeS8UmbajJl1028UsSXS9ZrKNUVt8p0WmFsV6divkaZSkEMW/PhMGR7xQDkQERLeyBEsQvGrlVs0NmR7a0uH/geDV+zWs7Ap36BRSDtDyN2msU8RVf34HY92cMtgpdgbkAK0Lh+d0akOMMftyxcHze2oogqRagAl8LWyNnKQ0fzbEzdlT6fSIXTkuJd58BTf5wyvQqFEq0UC6LA==
+  - secure: j6HrKTI0NnVQLwjG/Nhtd7+hVhHXFqfdYLleez8CIGPKHJ2RQGAoAqv1ftDCbGmLjcPpz9+RH32wE5xr8kgB9zws8wK2LP6UAjlA1O58gUJU9KDX4aPLJN2jtsasqzIoG5yITNbd46+uo6Ewj9BNt+yg69ZIe+vborXmnLZSnvC58LDE2TIT7XCns+onqcA0iQU5WO5Un7PV+hPVtWfAzyvcYkdhOxEMkFS5B7T+BeJwkDzZF4KU+cJm2nKGgaQYqJ+lcZHxB0krYmappzVMNrn6p+dBRcxx8CK5JrZCsvwfyPjoO+hlpgcMouh7PmZVvKYSVUtKaWjrbmi53RPWhQ==
 
 before_script: 
   - mkdir -p shippable/testresults
