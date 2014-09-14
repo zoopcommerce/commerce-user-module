@@ -5,7 +5,10 @@ namespace Zoop\User\DataModel\Company;
 use Zoop\Common\User\PasswordInterface;
 use Zoop\Common\User\RoleAwareUserInterface;
 use Zoop\Common\User\UserInterface;
-use Zoop\User\DataModel\StoresTrait;
+use Zoop\Common\DataModel\CompaniesTrait;
+use Zoop\Common\DataModel\FilterCountryInterface;
+use Zoop\Common\DataModel\FilterStoreInterface;
+use Zoop\Common\DataModel\StoresTrait;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\Roles;
 //Annotation imports
@@ -24,10 +27,13 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  * })
  */
 class Admin extends AbstractUser implements
+    FilterCountryInterface,
+    FilterStoreInterface,
     PasswordInterface,
     UserInterface,
     RoleAwareUserInterface
 {
+    use CompaniesTrait;
     use StoresTrait;
 
     /**

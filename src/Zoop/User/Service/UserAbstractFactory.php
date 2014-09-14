@@ -10,6 +10,7 @@ use Zend\EventManager\EventManagerAwareTrait;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zoop\Common\User\UserInterface;
+use Zoop\User\Events;
 
 /**
  *
@@ -20,8 +21,6 @@ use Zoop\Common\User\UserInterface;
 class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAwareInterface
 {
     use EventManagerAwareTrait;
-
-    const EVENT_USER = 'user';
 
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
@@ -54,6 +53,6 @@ class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAware
     protected function triggerUserEvent(UserInterface $user)
     {
         $this->getEventManager()
-            ->trigger(self::EVENT_USER, null, ['user' => $user]);
+            ->trigger(Events::userPostAuth, null, ['user' => $user]);
     }
 }
