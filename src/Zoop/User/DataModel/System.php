@@ -3,8 +3,7 @@
 namespace Zoop\User\DataModel;
 
 use Zoop\Common\User\RoleAwareUserInterface;
-use Zoop\Common\User\UserInterface as CommonUserInterface;
-use Zoop\User\DataModel\UserInterface;
+use Zoop\Common\User\UserInterface;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\Roles;
 //Annotation imports
@@ -14,12 +13,11 @@ use Zoop\Shard\Annotation\Annotations as Shard;
 /**
  * @ODM\Document
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles="*", allow="*")
+ *     @Shard\Permission\Basic(roles="*", deny="*")
  * })
  */
 class System extends AbstractUser implements
     UserInterface,
-    CommonUserInterface,
     RoleAwareUserInterface
 {
     public function __construct()

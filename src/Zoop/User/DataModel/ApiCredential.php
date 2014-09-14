@@ -9,7 +9,16 @@ use Zoop\Shard\Annotation\Annotations as Shard;
 /**
  * @ODM\EmbeddedDocument
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles="*", allow="*")
+ *      @Shard\Permission\Basic(
+ *          roles={
+ *              "zoop::admin",
+ *              "partner::admin",
+ *              "company::admin",
+ *              "store::admin",
+ *             "owner"
+ *          },
+ *          allow="*"
+ *      )
  * })
  */
 class ApiCredential
@@ -23,7 +32,7 @@ class ApiCredential
      * @ODM\String
      */
     protected $secret;
-    
+
     public function __construct($key, $secret)
     {
         $this->setKey($key);

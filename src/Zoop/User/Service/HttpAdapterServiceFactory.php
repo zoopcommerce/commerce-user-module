@@ -25,14 +25,14 @@ class HttpAdapterServiceFactory implements FactoryInterface
                 'accept_schemes' => 'basic'
             ]
         );
-        
+
         $resolver = new HttpResolver(
             $serviceLocator->get(
                 $serviceLocator
                     ->get('config')['zoop']['gateway']['authentication_service_options']['per_session_adapter']
             )
         );
-        
+
         $return->setRequest($serviceLocator->get('request'));
         $return->setResponse($serviceLocator->get('response'));
         $return->setBasicResolver($resolver);

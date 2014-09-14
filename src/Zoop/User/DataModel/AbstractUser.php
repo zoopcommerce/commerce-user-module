@@ -32,19 +32,27 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  * @ODM\InheritanceType("SINGLE_COLLECTION")
  * @ODM\DiscriminatorField(fieldName="type")
  * @ODM\DiscriminatorMap({
- *     "CompanyAdmin"                   = "Zoop\User\DataModel\Company\Admin",
- *     "Customer"                       = "Zoop\User\DataModel\Customer",
- *     "Guest"                          = "Zoop\User\DataModel\Guest",
- *     "PartnerAdmin"                   = "Zoop\User\DataModel\Partner\Admin",
- *     "ZoopAdmin"                      = "Zoop\User\DataModel\Zoop\Admin"
+ *     "company::admin" = "Zoop\User\DataModel\Company\Admin",
+ *     "customer" = "Zoop\User\DataModel\Customer",
+ *     "guest" = "Zoop\User\DataModel\Guest",
+ *     "partner::admin" = "Zoop\User\DataModel\Partner\Admin",
+ *     "zoop::admin" = "Zoop\User\DataModel\Zoop\Admin"
  * })
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles={"sys::authenticate", "owner"}, allow="read"),
- *     @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles"),
- *     @Shard\Permission\Basic(roles="sys::recoverpassword", allow="update::password"),
- *     @Shard\Permission\Basic(roles="zoop-admin", allow="*"),
- *     @Shard\Permission\Basic(roles="partner-admin", allow="read"),
- *     @Shard\Permission\Basic(roles="company-admin", allow="read")
+ *      @Shard\Permission\Basic(roles="zoop::admin", allow="*"),
+ *      @Shard\Permission\Basic(
+ *          roles={
+ *              "sys::authenticate",
+ *              "sys::auth-user",
+ *              "owner",
+ *             "partner::admin",
+ *             "company::admin",
+ *            "store::admin"
+ *          },
+ *          allow="read"
+ *      ),
+ *      @Shard\Permission\Basic(roles="sys::recoverpassword", allow="update::password"),
+ *      @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles")
  * })
  */
 class AbstractUser
@@ -84,9 +92,9 @@ class AbstractUser
      * @ODM\EmbedMany(targetDocument="\Zoop\User\DataModel\ApiCredential")
      */
     protected $apiCredentials = [];
-    
+
     /**
-     * 
+     *
      * @return string
      */
     public function getFirstName()
@@ -95,7 +103,7 @@ class AbstractUser
     }
 
     /**
-     * 
+     *
      * @param string $firstName
      */
     public function setFirstName($firstName)
@@ -104,7 +112,7 @@ class AbstractUser
     }
 
     /**
-     * 
+     *
      * @return string
      */
     public function getLastName()
@@ -113,7 +121,7 @@ class AbstractUser
     }
 
     /**
-     * 
+     *
      * @param string $lastName
      */
     public function setLastName($lastName)
@@ -136,7 +144,7 @@ class AbstractUser
     {
         $this->email = (string) $email;
     }
-    
+
     /**
      * @return ArrayCollection
      */
@@ -155,7 +163,7 @@ class AbstractUser
     {
         $this->apiCredentials = $apiCredentials;
     }
-    
+
     /**
      * @param ApiCredential $apiCredential
      */
