@@ -9,6 +9,7 @@ use Zoop\User\DataModel\Zoop\Admin as User;
 
 class EventsTest extends AbstractTest
 {
+    //TODO: fix this test since we removed the event aware interface
     public function testTriggerUserEvent()
     {
         $serviceManager = new ServiceManager;
