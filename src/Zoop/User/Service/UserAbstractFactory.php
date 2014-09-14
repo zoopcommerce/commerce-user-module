@@ -53,6 +53,6 @@ class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAware
     protected function triggerUserEvent(UserInterface $user)
     {
         $this->getEventManager()
-            ->trigger(Events::userPostAuth, null, ['user' => $user]);
+            ->trigger(Events::USER_POST_AUTH, null, ['user' => $user]);
     }
 }

@@ -34,7 +34,7 @@ class Admin extends AbstractUser implements
 {
     use CompaniesTrait;
     use StoresTrait;
-    
+
     /**
      * @ODM\Collection
      */
