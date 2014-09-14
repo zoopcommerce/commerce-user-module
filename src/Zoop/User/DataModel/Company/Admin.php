@@ -29,7 +29,7 @@ class Admin extends AbstractUser implements
     RoleAwareUserInterface
 {
     use StoresTrait;
-    
+
     /**
      * @ODM\Collection
      */

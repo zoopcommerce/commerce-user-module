@@ -20,9 +20,9 @@ use Zoop\Common\User\UserInterface;
 class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAwareInterface
 {
     use EventManagerAwareTrait;
-    
+
     const EVENT_USER = 'user';
-    
+
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
@@ -32,7 +32,7 @@ class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAware
             $authenticationService = $serviceLocator->get('Zend\Authentication\AuthenticationService');
             if ($authenticationService->hasIdentity() || $authenticationService->authenticate()->isValid()) {
                 $this->triggerUserEvent($authenticationService->getIdentity());
-                
+
                 return true;
             }
         }
@@ -45,10 +45,10 @@ class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAware
     {
         return $serviceLocator->get('Zend\Authentication\AuthenticationService')->getIdentity();
     }
-    
+
     /**
      * Triggers an event with the authenticated user
-     * 
+     *
      * @param UserInterface $user
      */
     protected function triggerUserEvent(UserInterface $user)

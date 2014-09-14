@@ -13,10 +13,10 @@ class CompanyAdminTest extends AbstractTest
     public function testCreateFail()
     {
         $dm = self::getDocumentManager();
-        
+
         $serviceLocator = $this->getApplicationServiceLocator()
             ->get('shard.commerce.servicemanager');
-        
+
         $eventManager = $dm->getEventManager();
         $eventManager->addEventListener(AccessControlEvents::CREATE_DENIED, $this);
 
@@ -36,23 +36,23 @@ class CompanyAdminTest extends AbstractTest
         $user->setLastName('Duvoisin');
         $user->setUsername($username);
         $user->setPassword($password);
-        
+
         $user->addStore('nespresso-en-us');
         $user->addStore('nespresso-en-au');
 
         $dm->persist($user);
         $dm->flush();
         $dm->clear();
-        
+
         $this->assertTrue(isset($this->calls[AccessControlEvents::CREATE_DENIED]));
     }
-    
+
     public function testCreateSuccess()
     {
         $dm = self::getDocumentManager();
         $serviceLocator = $this->getApplicationServiceLocator()
             ->get('shard.commerce.servicemanager');
-        
+
         //set auth user
         $sysUser = new User;
         $sysUser->addRole(Roles::PARTNER_ADMIN);
@@ -69,7 +69,7 @@ class CompanyAdminTest extends AbstractTest
         $user->setLastName('Duvoisin');
         $user->setUsername($username);
         $user->setPassword($password);
-        
+
         $user->addStore('nespresso-en-us');
         $user->addStore('nespresso-en-au');
 
@@ -79,15 +79,15 @@ class CompanyAdminTest extends AbstractTest
         unset($user);
 
         $user = $this->getUser($username);
-        
+
         $this->assertTrue($user instanceof CompanyAdmin);
         $this->assertEquals($username, $user->getUsername());
         $this->assertNotEquals($email, $user->getEmail());
-        
+
         //decrypt the user
         $blockCipherHelper = $serviceLocator->get('crypt.blockcipherhelper');
         $blockCipherHelper->decryptDocument($user, $dm->getClassMetadata(get_class($user)));
-        
+
         $this->assertEquals($email, $user->getEmail());
         $this->assertNotEquals($password, $user->getPassword());
         $dm->clear();

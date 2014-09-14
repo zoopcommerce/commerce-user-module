@@ -13,8 +13,19 @@ use Zoop\Shard\Annotation\Annotations as Shard;
 /**
  * @ODM\Document
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles={"sys::auth-user", "zoop::admin"}, allow="*"),
- *     @Shard\Permission\Basic(roles={"partner::admin", "company::admin", "store::admin"}, allow={"create", "read", "update"})
+ *      @Shard\Permission\Basic(roles={"sys::auth-user", "zoop::admin"}, allow="*"),
+ *      @Shard\Permission\Basic(
+ *          roles={
+ *              "partner::admin",
+ *              "company::admin",
+ *              "store::admin"
+ *          },
+ *          allow={
+ *              "create",
+ *              "read",
+ *              "update"
+ *          }
+ *      )
  * })
  */
 class Customer extends AbstractUser implements

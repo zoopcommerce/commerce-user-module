@@ -39,10 +39,20 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     "zoop::admin" = "Zoop\User\DataModel\Zoop\Admin"
  * })
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles="zoop::admin", allow="*"),
- *     @Shard\Permission\Basic(roles={"sys::authenticate", "sys::auth-user", "owner", "partner::admin", "company::admin", "store::admin"}, allow="read"),
- *     @Shard\Permission\Basic(roles="sys::recoverpassword", allow="update::password"),
- *     @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles")
+ *      @Shard\Permission\Basic(roles="zoop::admin", allow="*"),
+ *      @Shard\Permission\Basic(
+ *          roles={
+ *              "sys::authenticate",
+ *              "sys::auth-user",
+ *              "owner",
+ *             "partner::admin",
+ *             "company::admin",
+ *            "store::admin"
+ *          },
+ *          allow="read"
+ *      ),
+ *      @Shard\Permission\Basic(roles="sys::recoverpassword", allow="update::password"),
+ *      @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles")
  * })
  */
 class AbstractUser
@@ -82,9 +92,9 @@ class AbstractUser
      * @ODM\EmbedMany(targetDocument="\Zoop\User\DataModel\ApiCredential")
      */
     protected $apiCredentials = [];
-    
+
     /**
-     * 
+     *
      * @return string
      */
     public function getFirstName()
@@ -93,7 +103,7 @@ class AbstractUser
     }
 
     /**
-     * 
+     *
      * @param string $firstName
      */
     public function setFirstName($firstName)
@@ -102,7 +112,7 @@ class AbstractUser
     }
 
     /**
-     * 
+     *
      * @return string
      */
     public function getLastName()
@@ -111,7 +121,7 @@ class AbstractUser
     }
 
     /**
-     * 
+     *
      * @param string $lastName
      */
     public function setLastName($lastName)
@@ -134,7 +144,7 @@ class AbstractUser
     {
         $this->email = (string) $email;
     }
-    
+
     /**
      * @return ArrayCollection
      */
@@ -153,7 +163,7 @@ class AbstractUser
     {
         $this->apiCredentials = $apiCredentials;
     }
-    
+
     /**
      * @param ApiCredential $apiCredential
      */

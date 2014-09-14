@@ -32,7 +32,7 @@ class Admin extends AbstractUser implements
     protected $roles = [
         Roles::PARTNER_ADMIN
     ];
-    
+
     /**
      * @ODM\Collection
      * @ODM\Index

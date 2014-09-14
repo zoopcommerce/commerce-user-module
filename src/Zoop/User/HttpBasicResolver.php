@@ -14,7 +14,7 @@ use Zend\ServiceManager\ServiceLocatorAwareTrait;
 use Zoop\Shard\Manifest;
 
 /**
- * 
+ *
  * @author Josh Stuart <josh.stuart@zoopcommerce.com>
  */
 class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterface
@@ -46,31 +46,31 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
     }
 
     /**
-     * 
+     *
      * @param string $username
      * @param string $realm
      * @param string|null $password
      * @return AbstractUser|null
-     * 
+     *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     protected function getUserFromHttpAuth($username, $realm, $password = null)
     {
         $this->initTempUser();
-        
+
         $dm = $this->getDocumentManager();
         $qb = $dm->createQueryBuilder(self::USER_COLLECTION);
-        
+
         $qb->field('apiCredentials')->elemMatch(
             $qb->expr()->field('key')->equals($username)
                 ->field('secret')->equals($password)
         );
-        
+
         $user = $qb->getQuery()
             ->getSingleResult();
-        
+
         $this->destroyTempUser();
-        
+
         return $user;
     }
 
@@ -91,7 +91,7 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
                 ->getQuery()
                 ->getSingleResult();
         }
-        
+
         return null;
     }
 
@@ -112,7 +112,7 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
         return $this->getServiceLocator()
             ->get('shard.commerce.manifest');
     }
-    
+
     /**
      * @return System
      */
@@ -122,7 +122,7 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
     }
 
     /**
-     * 
+     *
      * @param System $sysUser
      */
     public function setSysUser(System $sysUser)
@@ -139,7 +139,7 @@ class HttpBasicResolver implements ResolverInterface, ServiceLocatorAwareInterfa
         $sysUser = new System;
         $sysUser->addRole(Roles::SYSTEM_AUTH_USER);
         $this->getServiceLocator()->setService('user', $sysUser);
-        
+
         $this->setSysUser($sysUser);
     }
 
