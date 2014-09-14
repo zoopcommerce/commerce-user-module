@@ -58,7 +58,7 @@ class ZoopUserCrudTest extends AbstractTest
             "lastName" => "Roediger",
             "email" => "tim@zoopcommerce.com",
             "password" => self::$zoopCreatedAdminSecret,
-            "type" => "ZoopAdmin"
+            "type" => "zoop::admin"
         ];
         
         $request = $this->getRequest();
@@ -106,7 +106,7 @@ class ZoopUserCrudTest extends AbstractTest
                 "bmw",
                 "youtube"
             ],
-            "type" => "PartnerAdmin"
+            "type" => "partner::admin"
         ];
         
         $request = $this->getRequest();
@@ -149,7 +149,7 @@ class ZoopUserCrudTest extends AbstractTest
                 "nespresso-en-us",
                 "nespresso-en-au"
             ],
-            "type" => "CompanyAdmin"
+            "type" => "company::admin"
         ];
         
         $request = $this->getRequest();
@@ -207,7 +207,7 @@ class ZoopUserCrudTest extends AbstractTest
         $this->assertEquals('joshstuart', $user['username']);
         $this->assertEquals('Josh', $user['firstName']);
         $this->assertEquals('Stuart', $user['lastName']);
-        $this->assertEquals('ZoopAdmin', $user['type']);
+        $this->assertEquals('zoop::admin', $user['type']);
         
         return $user;
     }
@@ -237,7 +237,7 @@ class ZoopUserCrudTest extends AbstractTest
         $this->assertEquals(self::$zoopCreatedAdminKey, $user['username']);
         $this->assertEquals('Tim', $user['firstName']);
         $this->assertEquals('Roediger', $user['lastName']);
-        $this->assertEquals('ZoopAdmin', $user['type']);
+        $this->assertEquals('zoop::admin', $user['type']);
         
         return $user;
     }

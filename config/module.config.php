@@ -61,7 +61,7 @@ return [
                     ],
                     'service_manager_config' => [
                         'abstract_factories' => [
-                            'Zoop\ShardModule\Service\UserAbstractFactory'
+                            'Zoop\User\Service\UserAbstractFactory'
                         ],
                         'factories' => [
                             'crypt.emailaddress' => 'Zoop\GomiModule\Service\CryptEmailAddressFactory',

@@ -15,12 +15,10 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  * @ODM\Document
  * @ODM\HasLifecycleCallbacks
  * @Shard\AccessControl({
- *     @Shard\Permission\Basic(roles={"sys::authenticate", "owner"}, allow="read"),
- *     @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles"),
+ *     @Shard\Permission\Basic(roles="zoop::admin", allow="*"),
+ *     @Shard\Permission\Basic(roles={"sys::authenticate", "sys::auth-user", "owner"}, allow="read"),
  *     @Shard\Permission\Basic(roles="sys::recoverpassword", allow="update::password"),
- *     @Shard\Permission\Basic(roles="zoop-admin", allow="*"),
- *     @Shard\Permission\Basic(roles="partner-admin", deny="*"),
- *     @Shard\Permission\Basic(roles="company-admin", deny="*")
+ *     @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles")
  * })
  */
 class Admin extends AbstractUser implements
