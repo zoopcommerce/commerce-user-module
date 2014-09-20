@@ -48,7 +48,7 @@ class UserAbstractFactory implements AbstractFactoryInterface
      */
     protected function triggerUserEvent(ServiceLocatorInterface $serviceLocator, UserInterface $user)
     {
-        $serviceLocator->get('application')
+        $serviceLocator->get('Application')
             ->getEventManager()
             ->trigger(Events::USER_POST_AUTH, null, $user);
     }

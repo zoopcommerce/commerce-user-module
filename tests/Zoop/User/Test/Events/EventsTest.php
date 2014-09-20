@@ -16,7 +16,21 @@ class EventsTest extends AbstractTest
 
         //mock event manager
         $mockEventManager = $this->getMock('Zend\\EventManager\\EventManagerInterface');
+        //ensure the event manager "trigger" is executed
         $mockEventManager->expects($this->once())->method('trigger');
+        $serviceManager->setService('EventManager', $mockEventManager);
+        
+        //mock requestsssss
+        $mockRequest = $this->getMock('Zend\\Http\\Request');
+        $serviceManager->setService('Request', $mockRequest);
+        $mockResponse = $this->getMock('Zend\\Http\\PhpEnvironment\\Response');
+        $serviceManager->setService('Response', $mockResponse);
+        
+        //mock application
+        $mockApplication = $this->getMock('Zend\\Mvc\\Application', [], [[], $serviceManager]);
+        $mockApplication->method('getEventManager')
+            ->willReturn($mockEventManager);
+        $serviceManager->setService('Application', $mockApplication);
 
         //mock auth service
         $mockAuthenticationService = $this->getMock('Zoop\\GatewayModule\\AuthenticationService');
@@ -28,7 +42,6 @@ class EventsTest extends AbstractTest
         $serviceManager->setService('Zend\Authentication\AuthenticationService', $mockAuthenticationService);
 
         $userFactory = new UserAbstractFactory;
-        $userFactory->setEventManager($mockEventManager);
         $userFactory->canCreateServiceWithName($serviceManager, 'user', 'user');
     }
 }
