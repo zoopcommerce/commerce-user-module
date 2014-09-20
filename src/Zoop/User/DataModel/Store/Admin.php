@@ -1,12 +1,10 @@
 <?php
 
-namespace Zoop\User\DataModel\Partner;
+namespace Zoop\User\DataModel\Store;
 
 use Zoop\Common\User\PasswordInterface;
 use Zoop\Common\User\RoleAwareUserInterface;
 use Zoop\Common\User\UserInterface;
-use Zoop\Common\DataModel\CompaniesTrait;
-use Zoop\Common\DataModel\FilterCountryInterface;
 use Zoop\Common\DataModel\FilterStoreInterface;
 use Zoop\Common\DataModel\StoresTrait;
 use Zoop\User\DataModel\AbstractUser;
@@ -22,46 +20,22 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     @Shard\Permission\Basic(roles={"sys::authenticate", "sys::auth-user", "owner"}, allow="read"),
  *     @Shard\Permission\Basic(roles="sys::recoverpassword", allow="update::password"),
  *     @Shard\Permission\Basic(roles="partner::admin", allow="*", deny="update::roles"),
+ *     @Shard\Permission\Basic(roles="company::admin", allow="*", deny="update::roles"),
  *     @Shard\Permission\Basic(roles="owner", allow="update::*", deny="update::roles")
  * })
  */
 class Admin extends AbstractUser implements
-    FilterCountryInterface,
     FilterStoreInterface,
     PasswordInterface,
     UserInterface,
     RoleAwareUserInterface
 {
-    use CompaniesTrait;
     use StoresTrait;
 
     /**
      * @ODM\Collection
      */
     protected $roles = [
-        Roles::PARTNER_ADMIN
+        Roles::STORE_ADMIN
     ];
-
-    /**
-     * @ODM\String
-     * @ODM\Index
-     * @Shard\Zones
-     */
-    protected $partner;
-
-    /**
-     * @return string
-     */
-    public function getPartner()
-    {
-        return $this->partner;
-    }
-
-    /**
-     * @param string $partner
-     */
-    public function setPartner($partner)
-    {
-        $this->partner = $partner;
-    }
 }

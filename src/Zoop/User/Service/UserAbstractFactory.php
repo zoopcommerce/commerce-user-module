@@ -5,8 +5,6 @@
  */
 namespace Zoop\User\Service;
 
-use Zend\EventManager\EventManagerAwareInterface;
-use Zend\EventManager\EventManagerAwareTrait;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zoop\Common\User\UserInterface;
@@ -18,10 +16,8 @@ use Zoop\User\Events;
  * @version $Revision$
  * @author  Josh Stuart <josh.stuart@zoopcommerce.com>
  */
-class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAwareInterface
+class UserAbstractFactory implements AbstractFactoryInterface
 {
-    use EventManagerAwareTrait;
-
     /**
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
@@ -30,7 +26,7 @@ class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAware
         if ($name == 'user' && $serviceLocator->has('Zend\Authentication\AuthenticationService')) {
             $authenticationService = $serviceLocator->get('Zend\Authentication\AuthenticationService');
             if ($authenticationService->hasIdentity() || $authenticationService->authenticate()->isValid()) {
-                $this->triggerUserEvent($authenticationService->getIdentity());
+                $this->triggerUserEvent($serviceLocator, $authenticationService->getIdentity());
 
                 return true;
             }
@@ -46,13 +42,14 @@ class UserAbstractFactory implements AbstractFactoryInterface, EventManagerAware
     }
 
     /**
-     * Triggers an event with the authenticated user
+     * Triggers an event with the authenticated user on the application event manager
      *
      * @param UserInterface $user
      */
-    protected function triggerUserEvent(UserInterface $user)
+    protected function triggerUserEvent(ServiceLocatorInterface $serviceLocator, UserInterface $user)
     {
-        $this->getEventManager()
-            ->trigger(Events::USER_POST_AUTH, null, ['user' => $user]);
+        $serviceLocator->get('Application')
+            ->getEventManager()
+            ->trigger(Events::USER_POST_AUTH, null, $user);
     }
 }
