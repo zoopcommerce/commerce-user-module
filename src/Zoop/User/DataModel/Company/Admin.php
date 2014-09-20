@@ -5,8 +5,6 @@ namespace Zoop\User\DataModel\Company;
 use Zoop\Common\User\PasswordInterface;
 use Zoop\Common\User\RoleAwareUserInterface;
 use Zoop\Common\User\UserInterface;
-use Zoop\Common\DataModel\CompaniesTrait;
-use Zoop\Common\DataModel\FilterCountryInterface;
 use Zoop\Common\DataModel\FilterStoreInterface;
 use Zoop\Common\DataModel\StoresTrait;
 use Zoop\User\DataModel\AbstractUser;
@@ -27,13 +25,11 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  * })
  */
 class Admin extends AbstractUser implements
-    FilterCountryInterface,
     FilterStoreInterface,
     PasswordInterface,
     UserInterface,
     RoleAwareUserInterface
 {
-    use CompaniesTrait;
     use StoresTrait;
 
     /**
@@ -42,4 +38,27 @@ class Admin extends AbstractUser implements
     protected $roles = [
         Roles::COMPANY_ADMIN
     ];
+
+    /**
+     * @ODM\String
+     * @ODM\Index
+     * @Shard\Zones
+     */
+    protected $company;
+
+    /**
+     * @return string
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param string $company
+     */
+    public function setCompany($company)
+    {
+        $this->company = $company;
+    }
 }

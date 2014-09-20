@@ -19,13 +19,13 @@ class EventsTest extends AbstractTest
         //ensure the event manager "trigger" is executed
         $mockEventManager->expects($this->once())->method('trigger');
         $serviceManager->setService('EventManager', $mockEventManager);
-        
+
         //mock requestsssss
         $mockRequest = $this->getMock('Zend\\Http\\Request');
         $serviceManager->setService('Request', $mockRequest);
         $mockResponse = $this->getMock('Zend\\Http\\PhpEnvironment\\Response');
         $serviceManager->setService('Response', $mockResponse);
-        
+
         //mock application
         $mockApplication = $this->getMock('Zend\\Mvc\\Application', [], [[], $serviceManager]);
         $mockApplication->method('getEventManager')

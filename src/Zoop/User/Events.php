@@ -16,7 +16,7 @@ final class Events
      */
     private function __construct()
     {
-        
+
     }
 
     /**
