@@ -2,6 +2,8 @@
 
 namespace Zoop\User\DataModel;
 
+use Zoop\User\DataModel\ApiCredentialInterface;
+
 //Annotation imports
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Zoop\Shard\Annotation\Annotations as Shard;
@@ -21,7 +23,7 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *      )
  * })
  */
-class ApiCredential
+class ApiCredential implements ApiCredentialInterface
 {
     /**
      * @ODM\String

@@ -6,6 +6,8 @@ use Zoop\Common\User\PasswordInterface;
 use Zoop\Common\User\RoleAwareUserInterface;
 use Zoop\Common\User\UserInterface;
 use Zoop\User\DataModel\AbstractUser;
+use Zoop\User\DataModel\UserInterface as UserModelInterface;
+use Zoop\User\DataModel\ZoopAdminInterface;
 use Zoop\User\Roles;
 //Annotation imports
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
@@ -23,8 +25,10 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  */
 class Admin extends AbstractUser implements
     PasswordInterface,
+    RoleAwareUserInterface,
     UserInterface,
-    RoleAwareUserInterface
+    UserModelInterface,
+    ZoopAdminInterface
 {
     /**
      * @ODM\Collection

@@ -3,13 +3,13 @@
 namespace Zoop\User\DataModel;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Zoop\User\DataModel\ApiCredential;
 use Zoop\Shard\Stamp\DataModel\CreatedOnTrait;
 use Zoop\Shard\Stamp\DataModel\UpdatedOnTrait;
 use Zoop\Shard\SoftDelete\DataModel\SoftDeleteableTrait;
 use Zoop\Shard\User\DataModel\PasswordTrait;
 use Zoop\Shard\User\DataModel\UserTrait;
 use Zoop\Shard\User\DataModel\RoleAwareUserTrait;
+use Zoop\User\DataModel\ApiCredentialInterface;
 //Annotation imports
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Zoop\Shard\Annotation\Annotations as Shard;
@@ -159,15 +159,19 @@ class AbstractUser
     /**
      * @param ArrayCollection $apiCredentials
      */
-    public function setApiCredentials(ArrayCollection $apiCredentials)
+    public function setApiCredentials($apiCredentials)
     {
-        $this->apiCredentials = $apiCredentials;
+        if (is_array($apiCredentials)) {
+            $this->apiCredentials = new ArrayCollection($apiCredentials);
+        } else {
+            $this->apiCredentials = $apiCredentials;
+        }
     }
 
     /**
      * @param ApiCredential $apiCredential
      */
-    public function addApiCredential(ApiCredential $apiCredential)
+    public function addApiCredential(ApiCredentialInterface $apiCredential)
     {
         if (!$this->getApiCredentials()->contains($apiCredential)) {
             $this->getApiCredentials()->add($apiCredential);

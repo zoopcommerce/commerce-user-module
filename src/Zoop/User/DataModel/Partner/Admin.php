@@ -5,11 +5,13 @@ namespace Zoop\User\DataModel\Partner;
 use Zoop\Common\User\PasswordInterface;
 use Zoop\Common\User\RoleAwareUserInterface;
 use Zoop\Common\User\UserInterface;
-use Zoop\Common\DataModel\CompaniesTrait;
-use Zoop\Common\DataModel\FilterCountryInterface;
-use Zoop\Common\DataModel\FilterStoreInterface;
-use Zoop\Common\DataModel\StoresTrait;
+use Zoop\Company\DataModel\CompaniesTrait;
+use Zoop\Company\DataModel\FilterCompaniesInterface;
+use Zoop\Store\DataModel\FilterStoreInterface;
+use Zoop\Store\DataModel\StoresTrait;
 use Zoop\User\DataModel\AbstractUser;
+use Zoop\User\DataModel\PartnerAdminInterface;
+use Zoop\User\DataModel\UserInterface as UserModelInterface;
 use Zoop\User\Roles;
 //Annotation imports
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
@@ -26,11 +28,13 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  * })
  */
 class Admin extends AbstractUser implements
-    FilterCountryInterface,
+    FilterCompaniesInterface,
     FilterStoreInterface,
+    PartnerAdminInterface,
     PasswordInterface,
+    RoleAwareUserInterface,
     UserInterface,
-    RoleAwareUserInterface
+    UserModelInterface
 {
     use CompaniesTrait;
     use StoresTrait;
