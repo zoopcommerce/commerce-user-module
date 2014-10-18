@@ -4,32 +4,32 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30070ba33d392bf7c3284f9f79574c51",
+    "hash": "1b1a5223537933e8489eb8cb2dd1d7e2",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "2.6.16",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "36434f2cd96ea78844478d897fb568a1866bce5a"
+                "reference": "937a39ca3cee98d31a7410a17db24e0496c41494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/36434f2cd96ea78844478d897fb568a1866bce5a",
-                "reference": "36434f2cd96ea78844478d897fb568a1866bce5a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/937a39ca3cee98d31a7410a17db24e0496c41494",
+                "reference": "937a39ca3cee98d31a7410a17db24e0496c41494",
                 "shasum": ""
             },
             "require": {
-                "guzzle/guzzle": ">=3.7.0,<=3.9.9",
+                "guzzle/guzzle": "~3.7",
                 "php": ">=5.3.3"
             },
             "require-dev": {
                 "doctrine/cache": "~1.0",
                 "ext-openssl": "*",
-                "monolog/monolog": "1.4.*",
-                "phpunit/phpunit": "4.*",
-                "symfony/yaml": "2.*"
+                "monolog/monolog": "~1.4",
+                "phpunit/phpunit": "~4.0",
+                "symfony/yaml": "~2.1"
             },
             "suggest": {
                 "doctrine/cache": "Adds support for caching of credentials and responses",
@@ -41,7 +41,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6.x-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -71,7 +71,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2014-09-11 22:10:11"
+            "time": "2014-10-16 21:37:55"
         },
         {
             "name": "codeguy/upload",
@@ -410,16 +410,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "fec965d330c958e175c39e61c3f6751955af32d0"
+                "reference": "0368bc031976126e5d36d37d2c56155092b6575b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fec965d330c958e175c39e61c3f6751955af32d0",
-                "reference": "fec965d330c958e175c39e61c3f6751955af32d0",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0368bc031976126e5d36d37d2c56155092b6575b",
+                "reference": "0368bc031976126e5d36d37d2c56155092b6575b",
                 "shasum": ""
             },
             "require": {
@@ -431,7 +431,7 @@
                 "symfony/console": "~2.0"
             },
             "suggest": {
-                "symfony/console": "Allows use of the command line interface"
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
             },
             "type": "library",
             "autoload": {
@@ -445,23 +445,20 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
                 }
             ],
             "description": "Database Abstraction Layer",
@@ -472,7 +469,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-01-01 16:43:57"
+            "time": "2014-10-16 11:56:49"
         },
         {
             "name": "doctrine/doctrine-module",
@@ -1431,17 +1428,17 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "748beed2a1e73179c3f5154d33fe6ae100c1aeb1"
+                "reference": "ca053eaa031c93afb68a71e4eb1f4168dfd4a661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/748beed2a1e73179c3f5154d33fe6ae100c1aeb1",
-                "reference": "748beed2a1e73179c3f5154d33fe6ae100c1aeb1",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/ca053eaa031c93afb68a71e4eb1f4168dfd4a661",
+                "reference": "ca053eaa031c93afb68a71e4eb1f4168dfd4a661",
                 "shasum": ""
             },
             "require": {
@@ -1482,21 +1479,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-14 16:10:54"
+            "time": "2014-09-25 09:53:56"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "8faf5cc7e80fde74a650a36e60d32ce3c3e0457b"
+                "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/8faf5cc7e80fde74a650a36e60d32ce3c3e0457b",
-                "reference": "8faf5cc7e80fde74a650a36e60d32ce3c3e0457b",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f6281337bf5f985f585d1db6a83adb05ce531f46",
+                "reference": "f6281337bf5f985f585d1db6a83adb05ce531f46",
                 "shasum": ""
             },
             "require": {
@@ -1505,7 +1502,7 @@
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/config": "~2.0",
-                "symfony/dependency-injection": "~2.0",
+                "symfony/dependency-injection": "~2.0,<2.6.0",
                 "symfony/stopwatch": "~2.2"
             },
             "suggest": {
@@ -1539,70 +1536,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2014-07-28 13:20:46"
-        },
-        {
-            "name": "willdurand/geocoder",
-            "version": "2.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/geocoder-php/Geocoder.git",
-                "reference": "258e2f5c84a9cea03096f6f11ecdc0293fbc7b93"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/Geocoder/zipball/258e2f5c84a9cea03096f6f11ecdc0293fbc7b93",
-                "reference": "258e2f5c84a9cea03096f6f11ecdc0293fbc7b93",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "geoip/geoip": "~1.13",
-                "guzzle/guzzle": "@stable",
-                "kriswallsmith/buzz": "@stable",
-                "zendframework/zend-http": "~2.1"
-            },
-            "suggest": {
-                "ext-curl": "Enabling the curl extension allows you to use the CurlHttpAdapter.",
-                "ext-geoip": "Enabling the geoip extension allows you to use the MaxMindProvider.",
-                "geoip/geoip": "If you are going to use the MaxMindBinaryProvider (conflict with geoip extension).",
-                "guzzle/guzzle": "Enabling Guzzle allows you to use the GuzzleHttpAdapter.",
-                "kriswallsmith/buzz": "Enabling Buzz allows you to use the BuzzHttpAdapter.",
-                "zendframework/zend-http": "Enabling Zend Http allows you to use the ZendHttpAdapter."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Geocoder": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "William Durand",
-                    "email": "william.durand1@gmail.com",
-                    "homepage": "http://www.willdurand.fr"
-                }
-            ],
-            "description": "The almost missing Geocoder PHP 5.3 library.",
-            "homepage": "http://geocoder-php.org",
-            "keywords": [
-                "abstraction",
-                "geocoder",
-                "geocoding",
-                "geoip"
-            ],
-            "time": "2014-01-05 01:57:42"
+            "time": "2014-09-28 15:56:11"
         },
         {
             "name": "zendframework/zendframework",
@@ -1768,118 +1702,30 @@
             "time": "2014-03-05 22:25:44"
         },
         {
-            "name": "zoopcommerce/commerce-api-module",
+            "name": "zoopcommerce/commerce-public-apis-module",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:zoopcommerce/commerce-api-module.git",
-                "reference": "57237b8fe7b12ba80d2bbb283b412f62ce320c5e"
+                "url": "git@github.com:zoopcommerce/commerce-public-apis-module.git",
+                "reference": "2b6b5e0a27c559299a3653fdacf01182b57fcb4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-api-module/zipball/57237b8fe7b12ba80d2bbb283b412f62ce320c5e",
-                "reference": "57237b8fe7b12ba80d2bbb283b412f62ce320c5e",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-apis-module/zipball/2b6b5e0a27c559299a3653fdacf01182b57fcb4b",
+                "reference": "2b6b5e0a27c559299a3653fdacf01182b57fcb4b",
                 "shasum": ""
             },
             "require": {
-                "aws/aws-sdk-php": "2.*",
-                "codeguy/upload": "dev-master#ff376306aacbd1005c7739dc171fae4edd96d8b7",
-                "doctrine/annotations": "dev-master#a11349d39d85bef75a71bd69bd604ac4fb993f03 as dev-master",
-                "doctrine/doctrine-module": "1.0.x-dev as 1.0",
-                "doctrine/doctrine-mongo-odm-module": "1.0.x-dev",
-                "doctrine/mongodb-odm": "dev-hotfix719 as 1.0.0-BETA9",
-                "doctrine/orm": "2.4.0-RC2",
-                "dompdf/dompdf": "dev-master#03ad3265797a338dce2d7064edd0cb4ebedb052b as dev-master",
-                "imagine/imagine": "~0.6",
-                "mashape/unirest-php": "~1.2",
-                "melihucar/ftpclient": "dev-master#faab472b1f3118d4926b3cbfc7d21c9cba255c0f as dev-master",
-                "php": ">=5.4",
-                "sendgrid/sendgrid": "~2.1",
-                "zendframework/zendframework": "2.3.1",
-                "zoopcommerce/commerce-common-module": "dev-master",
-                "zoopcommerce/shard-module": "~4.0"
+                "php": ">=5.4"
             },
             "require-dev": {
                 "phpmd/phpmd": "2.*",
-                "phpunit/phpunit": ">=3.7",
-                "squizlabs/php_codesniffer": "1.4.*",
-                "zoopcommerce/slipstream": "~0.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Zoop\\Api": "src/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Josh Stuart",
-                    "email": "josh.stuart@zoopcommerce.com"
-                },
-                {
-                    "name": "Tim Roediger",
-                    "email": "superdweebie@gmail.com"
-                }
-            ],
-            "description": "Commerce - API Module",
-            "homepage": "http://zoopcommerce.com",
-            "keywords": [
-                "commerce",
-                "doctrine",
-                "mongo",
-                "shard",
-                "zf2",
-                "zoop",
-                "zoop"
-            ],
-            "support": {
-                "source": "https://github.com/zoopcommerce/commerce-api-module/tree/master",
-                "issues": "https://github.com/zoopcommerce/commerce-api-module/issues"
-            },
-            "time": "2014-09-10 07:05:52"
-        },
-        {
-            "name": "zoopcommerce/commerce-common-module",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:zoopcommerce/commerce-common-module.git",
-                "reference": "3f6743cedec3fe969af7d663d481f41776c37112"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/3f6743cedec3fe969af7d663d481f41776c37112",
-                "reference": "3f6743cedec3fe969af7d663d481f41776c37112",
-                "shasum": ""
-            },
-            "require": {
-                "aws/aws-sdk-php": "2.*",
-                "codeguy/upload": "dev-master#ff376306aacbd1005c7739dc171fae4edd96d8b7",
-                "doctrine/annotations": "dev-master#a11349d39d85bef75a71bd69bd604ac4fb993f03 as dev-master",
-                "doctrine/doctrine-module": "1.0.x-dev as 1.0",
-                "doctrine/doctrine-mongo-odm-module": "1.0.x-dev",
-                "doctrine/mongodb-odm": "dev-hotfix719 as 1.0.0-BETA9",
-                "doctrine/orm": "2.4.0-RC2",
-                "dompdf/dompdf": "dev-master#03ad3265797a338dce2d7064edd0cb4ebedb052b as dev-master",
-                "ezyang/htmlpurifier": "v4.5.0",
-                "imagine/imagine": "~0.6",
-                "mashape/unirest-php": "~1.2",
-                "melihucar/ftpclient": "dev-master#faab472b1f3118d4926b3cbfc7d21c9cba255c0f as dev-master",
-                "php": ">=5.4",
-                "sendgrid/sendgrid": "~2.1",
-                "willdurand/geocoder": "2.4.*",
-                "zendframework/zendframework": "2.3.1",
-                "zoopcommerce/shard-module": "~4.0"
-            },
-            "require-dev": {
-                "phpmd/phpmd": "2.*",
-                "phpunit/phpunit": ">=3.7",
                 "squizlabs/php_codesniffer": "1.4.*"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Zoop\\Common": "src/"
+                    "Zoop": "src/"
                 }
             },
             "authors": [
@@ -1892,7 +1738,7 @@
                     "email": "superdweebie@gmail.com"
                 }
             ],
-            "description": "Commerce - Common Module",
+            "description": "Commerce - Public APIs Module",
             "homepage": "http://zoopcommerce.com",
             "keywords": [
                 "commerce",
@@ -1904,10 +1750,10 @@
                 "zoop"
             ],
             "support": {
-                "source": "https://github.com/zoopcommerce/commerce-common-module/tree/master",
-                "issues": "https://github.com/zoopcommerce/commerce-common-module/issues"
+                "source": "https://github.com/zoopcommerce/commerce-public-apis-module/tree/master",
+                "issues": "https://github.com/zoopcommerce/commerce-public-apis-module/issues"
             },
-            "time": "2014-09-14 05:35:14"
+            "time": "2014-10-18 05:51:11"
         },
         {
             "name": "zoopcommerce/common",
@@ -2411,22 +2257,21 @@
     ],
     "packages-dev": [
         {
-            "name": "ocramius/instantiator",
-            "version": "1.1.3",
+            "name": "doctrine/instantiator",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Ocramius/Instantiator.git",
-                "reference": "e24a12178906ff2e7471b8aaf3a0eb789b59f881"
+                "url": "https://github.com/doctrine/instantiator.git",
+                "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/Instantiator/zipball/e24a12178906ff2e7471b8aaf3a0eb789b59f881",
-                "reference": "e24a12178906ff2e7471b8aaf3a0eb789b59f881",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/f976e5de371104877ebc89bd8fecb0019ed9c119",
+                "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119",
                 "shasum": ""
             },
             "require": {
-                "ocramius/lazy-map": "1.0.*",
-                "php": "~5.3"
+                "php": ">=5.3,<8.0-DEV"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
@@ -2438,12 +2283,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Instantiator\\": "src"
+                    "Doctrine\\Instantiator\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2458,83 +2303,25 @@
                 }
             ],
             "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://github.com/Ocramius/Instantiator",
+            "homepage": "https://github.com/doctrine/instantiator",
             "keywords": [
                 "constructor",
                 "instantiate"
             ],
-            "time": "2014-08-25 14:48:16"
-        },
-        {
-            "name": "ocramius/lazy-map",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Ocramius/LazyMap.git",
-                "reference": "7fe3d347f5e618bcea7d39345ff83f3651d8b752"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/LazyMap/zipball/7fe3d347f5e618bcea7d39345ff83f3651d8b752",
-                "reference": "7fe3d347f5e618bcea7d39345ff83f3651d8b752",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "athletic/athletic": "~0.1.6",
-                "phpmd/phpmd": "1.5.*",
-                "phpunit/phpunit": ">=3.7",
-                "satooshi/php-coveralls": "~0.6",
-                "squizlabs/php_codesniffer": "1.4.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "LazyMap\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A library that provides lazy instantiation logic for a map of objects",
-            "homepage": "https://github.com/Ocramius/LazyMap",
-            "keywords": [
-                "lazy",
-                "lazy instantiation",
-                "lazy loading",
-                "map",
-                "service location"
-            ],
-            "time": "2013-11-09 22:30:54"
+            "time": "2014-10-13 12:58:55"
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "5fbe4b9ec9d05057d88b898ac5ba9071f427eeb0"
+                "reference": "dc582a3c0180664a8fbfc5a34efaf4cc13fccc60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/5fbe4b9ec9d05057d88b898ac5ba9071f427eeb0",
-                "reference": "5fbe4b9ec9d05057d88b898ac5ba9071f427eeb0",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/dc582a3c0180664a8fbfc5a34efaf4cc13fccc60",
+                "reference": "dc582a3c0180664a8fbfc5a34efaf4cc13fccc60",
                 "shasum": ""
             },
             "require": {
@@ -2560,28 +2347,28 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2014-09-16 14:04:28"
+            "time": "2014-10-08 06:54:50"
         },
         {
             "name": "phpmd/phpmd",
-            "version": "2.1.1",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "0a1a12f6867d0e676718fd1ac287e0c34b956fb2"
+                "reference": "1a485d9db869137af5e9678bd844568c92998b25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/0a1a12f6867d0e676718fd1ac287e0c34b956fb2",
-                "reference": "0a1a12f6867d0e676718fd1ac287e0c34b956fb2",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/1a485d9db869137af5e9678bd844568c92998b25",
+                "reference": "1a485d9db869137af5e9678bd844568c92998b25",
                 "shasum": ""
             },
             "require": {
                 "pdepend/pdepend": "2.0.*",
                 "php": ">=5.3.0",
-                "symfony/config": "@stable",
-                "symfony/dependency-injection": "@stable",
-                "symfony/filesystem": "@stable"
+                "symfony/config": "2.5.*",
+                "symfony/dependency-injection": "2.5.*",
+                "symfony/filesystem": "2.5.*"
             },
             "bin": [
                 "src/bin/phpmd"
@@ -2589,20 +2376,15 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "PHPMD\\": "src/main/php",
-                    "PDepend\\": "vendor/pdepend/pdepend/src/main/php/"
+                    "PHPMD\\": "src/main/php"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                "../../pdepend/pdepend/src/main/php",
-                "src/main/php"
-            ],
             "license": [
                 "BSD-3-Clause"
             ],
             "description": "Official version of PHPMD handled with Composer.",
-            "time": "2014-09-09 18:47:29"
+            "time": "2014-09-25 15:56:22"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2853,16 +2635,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.2.6",
+            "version": "4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c28a790620fe30b049bb693be1ef9cd4e0fe906c"
+                "reference": "5a0bc4dcbb7340c0a9a9bc3507854a67c564edc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c28a790620fe30b049bb693be1ef9cd4e0fe906c",
-                "reference": "c28a790620fe30b049bb693be1ef9cd4e0fe906c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5a0bc4dcbb7340c0a9a9bc3507854a67c564edc4",
+                "reference": "5a0bc4dcbb7340c0a9a9bc3507854a67c564edc4",
                 "shasum": ""
             },
             "require": {
@@ -2876,7 +2658,7 @@
                 "phpunit/php-file-iterator": "~1.3.1",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "~1.0.2",
-                "phpunit/phpunit-mock-objects": "~2.2",
+                "phpunit/phpunit-mock-objects": "~2.3",
                 "sebastian/comparator": "~1.0",
                 "sebastian/diff": "~1.1",
                 "sebastian/environment": "~1.0",
@@ -2893,7 +2675,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2.x-dev"
+                    "dev-master": "4.3.x-dev"
                 }
             },
             "autoload": {
@@ -2923,29 +2705,29 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-09-14 09:31:24"
+            "time": "2014-10-16 16:53:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.2.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "b241b18d87a47093f20fae8b0ba40379b00bd53a"
+                "reference": "c63d2367247365f688544f0d500af90a11a44c65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/b241b18d87a47093f20fae8b0ba40379b00bd53a",
-                "reference": "b241b18d87a47093f20fae8b0ba40379b00bd53a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/c63d2367247365f688544f0d500af90a11a44c65",
+                "reference": "c63d2367247365f688544f0d500af90a11a44c65",
                 "shasum": ""
             },
             "require": {
-                "ocramius/instantiator": "~1.0",
+                "doctrine/instantiator": "~1.0,>=1.0.1",
                 "php": ">=5.3.3",
                 "phpunit/php-text-template": "~1.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2"
+                "phpunit/phpunit": "~4.3"
             },
             "suggest": {
                 "ext-soap": "*"
@@ -2953,7 +2735,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.3.x-dev"
                 }
             },
             "autoload": {
@@ -2978,20 +2760,20 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2014-09-06 17:32:37"
+            "time": "2014-10-03 05:12:11"
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2"
+                "reference": "e54a01c0da1b87db3c5a3c4c5277ddf331da4aef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2",
-                "reference": "f7069ee51fa9fb6c038e16a9d0e3439f5449dcf2",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/e54a01c0da1b87db3c5a3c4c5277ddf331da4aef",
+                "reference": "e54a01c0da1b87db3c5a3c4c5277ddf331da4aef",
                 "shasum": ""
             },
             "require": {
@@ -3019,11 +2801,6 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                },
-                {
                     "name": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
@@ -3034,6 +2811,10 @@
                 {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@2bepublished.at"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
@@ -3043,29 +2824,32 @@
                 "compare",
                 "equality"
             ],
-            "time": "2014-05-02 07:05:58"
+            "time": "2014-05-11 23:00:21"
         },
         {
             "name": "sebastian/diff",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d"
+                "reference": "5843509fed39dee4b356a306401e9dd1a931fec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d",
-                "reference": "1e091702a5a38e6b4c1ba9ca816e3dd343df2e2d",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/5843509fed39dee4b356a306401e9dd1a931fec7",
+                "reference": "5843509fed39dee4b356a306401e9dd1a931fec7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
+            "require-dev": {
+                "phpunit/phpunit": "~4.2"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -3079,13 +2863,12 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                },
-                {
                     "name": "Kore Nordmann",
                     "email": "mail@kore-nordmann.de"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Diff implementation",
@@ -3093,32 +2876,32 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2013-08-03 16:46:33"
+            "time": "2014-08-15 10:29:00"
         },
         {
             "name": "sebastian/environment",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "79517609ec01139cd7e9fded0dd7ce08c952ef6a"
+                "reference": "6288ebbf6fa3ed2b2ff2d69c356fbaaf4f0971a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/79517609ec01139cd7e9fded0dd7ce08c952ef6a",
-                "reference": "79517609ec01139cd7e9fded0dd7ce08c952ef6a",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6288ebbf6fa3ed2b2ff2d69c356fbaaf4f0971a7",
+                "reference": "6288ebbf6fa3ed2b2ff2d69c356fbaaf4f0971a7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.0.*@dev"
+                "phpunit/phpunit": "~4.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -3133,8 +2916,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Provides functionality to handle HHVM/PHP environments",
@@ -3144,27 +2926,27 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2014-02-18 16:17:19"
+            "time": "2014-10-07 09:23:16"
         },
         {
             "name": "sebastian/exporter",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "1f9a98e6f5dfe0524cb8c6166f7c82f3e9ae1529"
+                "reference": "c7d59948d6e82818e1bdff7cadb6c34710eb7dc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/1f9a98e6f5dfe0524cb8c6166f7c82f3e9ae1529",
-                "reference": "1f9a98e6f5dfe0524cb8c6166f7c82f3e9ae1529",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/c7d59948d6e82818e1bdff7cadb6c34710eb7dc0",
+                "reference": "c7d59948d6e82818e1bdff7cadb6c34710eb7dc0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.0.*@dev"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
@@ -3183,11 +2965,6 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                },
-                {
                     "name": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
@@ -3196,13 +2973,16 @@
                     "email": "github@wallbash.com"
                 },
                 {
-                    "name": "Adam Harvey",
-                    "email": "aharvey@php.net",
-                    "role": "Lead"
-                },
-                {
                     "name": "Bernhard Schussek",
                     "email": "bschussek@2bepublished.at"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                },
+                {
+                    "name": "Adam Harvey",
+                    "email": "aharvey@php.net"
                 }
             ],
             "description": "Provides the functionality to export PHP variables for visualization",
@@ -3211,7 +2991,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2014-02-16 08:26:31"
+            "time": "2014-09-10 00:51:36"
         },
         {
             "name": "sebastian/version",
@@ -3321,17 +3101,17 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "080eabdc256c1d7a3a7cf6296271edb68eb1ab2b"
+                "reference": "0316364bfebc8b080077c731a99f189341476bd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/080eabdc256c1d7a3a7cf6296271edb68eb1ab2b",
-                "reference": "080eabdc256c1d7a3a7cf6296271edb68eb1ab2b",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/0316364bfebc8b080077c731a99f189341476bd7",
+                "reference": "0316364bfebc8b080077c731a99f189341476bd7",
                 "shasum": ""
             },
             "require": {
@@ -3365,21 +3145,21 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-31 03:22:04"
+            "time": "2014-09-23 05:25:11"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/DependencyInjection",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DependencyInjection.git",
-                "reference": "dcfdfbfdab2dc5bf00e5274719126a3079c6d02c"
+                "reference": "1f01a64c9047909e40700a14ee34e8c446300618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/dcfdfbfdab2dc5bf00e5274719126a3079c6d02c",
-                "reference": "dcfdfbfdab2dc5bf00e5274719126a3079c6d02c",
+                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/1f01a64c9047909e40700a14ee34e8c446300618",
+                "reference": "1f01a64c9047909e40700a14ee34e8c446300618",
                 "shasum": ""
             },
             "require": {
@@ -3422,21 +3202,21 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-31 03:22:04"
+            "time": "2014-09-27 08:35:39"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "a765efd199e02ff4001c115c318e219030be9364"
+                "reference": "4e62fab0060a826561c78b665925b37c870c45f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/a765efd199e02ff4001c115c318e219030be9364",
-                "reference": "a765efd199e02ff4001c115c318e219030be9364",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/4e62fab0060a826561c78b665925b37c870c45f5",
+                "reference": "4e62fab0060a826561c78b665925b37c870c45f5",
                 "shasum": ""
             },
             "require": {
@@ -3469,21 +3249,21 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2014-09-03 09:00:14"
+            "time": "2014-09-22 09:14:18"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.5.4",
+            "version": "v2.5.5",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "01a7695bcfb013d0a15c6757e15aae120342986f"
+                "reference": "b1dbc53593b98c2d694ebf383660ac9134d30b96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/01a7695bcfb013d0a15c6757e15aae120342986f",
-                "reference": "01a7695bcfb013d0a15c6757e15aae120342986f",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/b1dbc53593b98c2d694ebf383660ac9134d30b96",
+                "reference": "b1dbc53593b98c2d694ebf383660ac9134d30b96",
                 "shasum": ""
             },
             "require": {
@@ -3516,7 +3296,213 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-31 03:22:04"
+            "time": "2014-09-22 09:14:18"
+        },
+        {
+            "name": "willdurand/geocoder",
+            "version": "2.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geocoder-php/Geocoder.git",
+                "reference": "258e2f5c84a9cea03096f6f11ecdc0293fbc7b93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geocoder-php/Geocoder/zipball/258e2f5c84a9cea03096f6f11ecdc0293fbc7b93",
+                "reference": "258e2f5c84a9cea03096f6f11ecdc0293fbc7b93",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "geoip/geoip": "~1.13",
+                "guzzle/guzzle": "@stable",
+                "kriswallsmith/buzz": "@stable",
+                "zendframework/zend-http": "~2.1"
+            },
+            "suggest": {
+                "ext-curl": "Enabling the curl extension allows you to use the CurlHttpAdapter.",
+                "ext-geoip": "Enabling the geoip extension allows you to use the MaxMindProvider.",
+                "geoip/geoip": "If you are going to use the MaxMindBinaryProvider (conflict with geoip extension).",
+                "guzzle/guzzle": "Enabling Guzzle allows you to use the GuzzleHttpAdapter.",
+                "kriswallsmith/buzz": "Enabling Buzz allows you to use the BuzzHttpAdapter.",
+                "zendframework/zend-http": "Enabling Zend Http allows you to use the ZendHttpAdapter."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Geocoder": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "William Durand",
+                    "email": "william.durand1@gmail.com",
+                    "homepage": "http://www.willdurand.fr"
+                }
+            ],
+            "description": "The almost missing Geocoder PHP 5.3 library.",
+            "homepage": "http://geocoder-php.org",
+            "keywords": [
+                "abstraction",
+                "geocoder",
+                "geocoding",
+                "geoip"
+            ],
+            "time": "2014-01-05 01:57:42"
+        },
+        {
+            "name": "zoopcommerce/commerce-api-module",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:zoopcommerce/commerce-api-module.git",
+                "reference": "979b54bba251f7f04c81f328b87b2b1134515ad3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-api-module/zipball/979b54bba251f7f04c81f328b87b2b1134515ad3",
+                "reference": "979b54bba251f7f04c81f328b87b2b1134515ad3",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "2.*",
+                "codeguy/upload": "dev-master#ff376306aacbd1005c7739dc171fae4edd96d8b7",
+                "doctrine/annotations": "dev-master#a11349d39d85bef75a71bd69bd604ac4fb993f03 as dev-master",
+                "doctrine/doctrine-module": "1.0.x-dev as 1.0",
+                "doctrine/doctrine-mongo-odm-module": "1.0.x-dev",
+                "doctrine/mongodb-odm": "dev-hotfix719 as 1.0.0-BETA9",
+                "doctrine/orm": "2.4.0-RC2",
+                "dompdf/dompdf": "dev-master#03ad3265797a338dce2d7064edd0cb4ebedb052b as dev-master",
+                "imagine/imagine": "~0.6",
+                "mashape/unirest-php": "~1.2",
+                "melihucar/ftpclient": "dev-master#faab472b1f3118d4926b3cbfc7d21c9cba255c0f as dev-master",
+                "php": ">=5.4",
+                "sendgrid/sendgrid": "~2.1",
+                "zendframework/zendframework": "2.3.1",
+                "zoopcommerce/shard-module": "~4.0"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "2.*",
+                "phpunit/phpunit": ">=3.7",
+                "squizlabs/php_codesniffer": "1.4.*",
+                "zoopcommerce/commerce-common-module": "dev-master",
+                "zoopcommerce/commerce-public-apis-module": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zoop\\Api": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Josh Stuart",
+                    "email": "josh.stuart@zoopcommerce.com"
+                },
+                {
+                    "name": "Tim Roediger",
+                    "email": "superdweebie@gmail.com"
+                }
+            ],
+            "description": "Commerce - API Module",
+            "homepage": "http://zoopcommerce.com",
+            "keywords": [
+                "commerce",
+                "doctrine",
+                "mongo",
+                "shard",
+                "zf2",
+                "zoop",
+                "zoop"
+            ],
+            "support": {
+                "source": "https://github.com/zoopcommerce/commerce-api-module/tree/master",
+                "issues": "https://github.com/zoopcommerce/commerce-api-module/issues"
+            },
+            "time": "2014-10-18 05:15:48"
+        },
+        {
+            "name": "zoopcommerce/commerce-common-module",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:zoopcommerce/commerce-common-module.git",
+                "reference": "926861e9c7fcfcff5e0d0987083fca9dff3c7e69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/926861e9c7fcfcff5e0d0987083fca9dff3c7e69",
+                "reference": "926861e9c7fcfcff5e0d0987083fca9dff3c7e69",
+                "shasum": ""
+            },
+            "require": {
+                "aws/aws-sdk-php": "2.*",
+                "codeguy/upload": "dev-master#ff376306aacbd1005c7739dc171fae4edd96d8b7",
+                "doctrine/annotations": "dev-master#a11349d39d85bef75a71bd69bd604ac4fb993f03 as dev-master",
+                "doctrine/doctrine-module": "1.0.x-dev as 1.0",
+                "doctrine/doctrine-mongo-odm-module": "1.0.x-dev",
+                "doctrine/mongodb-odm": "dev-hotfix719 as 1.0.0-BETA9",
+                "doctrine/orm": "2.4.0-RC2",
+                "dompdf/dompdf": "dev-master#03ad3265797a338dce2d7064edd0cb4ebedb052b as dev-master",
+                "ezyang/htmlpurifier": "v4.5.0",
+                "imagine/imagine": "~0.6",
+                "mashape/unirest-php": "~1.2",
+                "melihucar/ftpclient": "dev-master#faab472b1f3118d4926b3cbfc7d21c9cba255c0f as dev-master",
+                "php": ">=5.4",
+                "sendgrid/sendgrid": "~2.1",
+                "willdurand/geocoder": "2.4.*",
+                "zendframework/zendframework": "2.3.1",
+                "zoopcommerce/commerce-public-apis-module": "dev-master",
+                "zoopcommerce/shard-module": "~4.0"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "2.*",
+                "phpunit/phpunit": ">=3.7",
+                "squizlabs/php_codesniffer": "1.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zoop\\Common": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Josh Stuart",
+                    "email": "josh.stuart@zoopcommerce.com"
+                },
+                {
+                    "name": "Tim Roediger",
+                    "email": "superdweebie@gmail.com"
+                }
+            ],
+            "description": "Commerce - Common Module",
+            "homepage": "http://zoopcommerce.com",
+            "keywords": [
+                "commerce",
+                "doctrine",
+                "mongo",
+                "shard",
+                "zf2",
+                "zoop",
+                "zoop"
+            ],
+            "support": {
+                "source": "https://github.com/zoopcommerce/commerce-common-module/tree/master",
+                "issues": "https://github.com/zoopcommerce/commerce-common-module/issues"
+            },
+            "time": "2014-10-18 05:11:13"
         },
         {
             "name": "zoopcommerce/commerce-test-data-module",
@@ -3524,12 +3510,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-test-data-module.git",
-                "reference": "9014cc9dd9fd5ae91be03469e51f2f729fccdd4a"
+                "reference": "487ed142b305b7db5b9926ff0b29517407f4ea77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-test-data-module/zipball/9014cc9dd9fd5ae91be03469e51f2f729fccdd4a",
-                "reference": "9014cc9dd9fd5ae91be03469e51f2f729fccdd4a",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-test-data-module/zipball/487ed142b305b7db5b9926ff0b29517407f4ea77",
+                "reference": "487ed142b305b7db5b9926ff0b29517407f4ea77",
                 "shasum": ""
             },
             "require": {
@@ -3567,45 +3553,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-test-data-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-test-data-module/issues"
             },
-            "time": "2014-09-20 05:46:49"
-        },
-        {
-            "name": "zoopcommerce/slipstream",
-            "version": "0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zoopcommerce/slipstream.git",
-                "reference": "3b174fd24f21e47fe4be3afe8b3442c26159117b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/slipstream/zipball/3b174fd24f21e47fe4be3afe8b3442c26159117b",
-                "reference": "3b174fd24f21e47fe4be3afe8b3442c26159117b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Roediger",
-                    "email": "superdweebie@gmail.com",
-                    "homepage": "http://superdweebie.com"
-                }
-            ],
-            "description": "An alternative to the standard composer autoloader",
-            "homepage": "http://github.com/zoopcommerce/slipstream",
-            "keywords": [
-                "autoloader",
-                "composer",
-                "php"
-            ],
-            "time": "2013-09-04 04:14:10"
+            "time": "2014-09-22 09:11:11"
         }
     ],
     "aliases": [
@@ -3650,9 +3598,10 @@
         "doctrine/orm": 5,
         "dompdf/dompdf": 20,
         "melihucar/ftpclient": 20,
+        "zoopcommerce/commerce-public-apis-module": 20,
+        "zoopcommerce/commerce-test-data-module": 20,
         "zoopcommerce/commerce-api-module": 20,
-        "zoopcommerce/commerce-common-module": 20,
-        "zoopcommerce/commerce-test-data-module": 20
+        "zoopcommerce/commerce-common-module": 20
     },
     "prefer-stable": false,
     "platform": {
