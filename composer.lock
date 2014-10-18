@@ -1707,12 +1707,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-public-apis-module.git",
-                "reference": "06099f985a2f68ffcc8ec7ac2965eed3d86cb709"
+                "reference": "2b6b5e0a27c559299a3653fdacf01182b57fcb4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-apis-module/zipball/06099f985a2f68ffcc8ec7ac2965eed3d86cb709",
-                "reference": "06099f985a2f68ffcc8ec7ac2965eed3d86cb709",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-apis-module/zipball/2b6b5e0a27c559299a3653fdacf01182b57fcb4b",
+                "reference": "2b6b5e0a27c559299a3653fdacf01182b57fcb4b",
                 "shasum": ""
             },
             "require": {
@@ -1753,7 +1753,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-public-apis-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-public-apis-module/issues"
             },
-            "time": "2014-10-18 05:07:34"
+            "time": "2014-10-18 05:51:11"
         },
         {
             "name": "zoopcommerce/common",

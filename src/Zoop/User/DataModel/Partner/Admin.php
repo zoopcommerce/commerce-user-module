@@ -11,7 +11,6 @@ use Zoop\Store\DataModel\FilterStoreInterface;
 use Zoop\Store\DataModel\StoresTrait;
 use Zoop\User\DataModel\AbstractUser;
 use Zoop\User\DataModel\PartnerAdminInterface;
-use Zoop\User\DataModel\UserInterface as UserModelInterface;
 use Zoop\User\Roles;
 //Annotation imports
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
@@ -33,8 +32,7 @@ class Admin extends AbstractUser implements
     PartnerAdminInterface,
     PasswordInterface,
     RoleAwareUserInterface,
-    UserInterface,
-    UserModelInterface
+    UserInterface
 {
     use CompaniesTrait;
     use StoresTrait;
