@@ -36,6 +36,7 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *     "customer" = "Zoop\User\DataModel\Customer",
  *     "guest" = "Zoop\User\DataModel\Guest",
  *     "partner::admin" = "Zoop\User\DataModel\Partner\Admin",
+ *     "store::admin" = "Zoop\User\DataModel\Store\Admin",
  *     "zoop::admin" = "Zoop\User\DataModel\Zoop\Admin"
  * })
  * @Shard\AccessControl({
@@ -45,9 +46,9 @@ use Zoop\Shard\Annotation\Annotations as Shard;
  *              "sys::authenticate",
  *              "sys::auth-user",
  *              "owner",
- *             "partner::admin",
- *             "company::admin",
- *            "store::admin"
+ *              "partner::admin",
+ *              "company::admin",
+ *              "store::admin"
  *          },
  *          allow="read"
  *      ),
