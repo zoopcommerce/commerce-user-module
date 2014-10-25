@@ -25,9 +25,8 @@ class UserAbstractFactory implements AbstractFactoryInterface
     {
         if ($name == 'user' && $serviceLocator->has('Zend\Authentication\AuthenticationService')) {
             $authenticationService = $serviceLocator->get('Zend\Authentication\AuthenticationService');
-            if ($authenticationService->hasIdentity() || $authenticationService->authenticate()->isValid()) {
+            if ($authenticationService->hasIdentity()) {
                 $this->triggerUserEvent($serviceLocator, $authenticationService->getIdentity());
-
                 return true;
             }
         }
