@@ -9,6 +9,7 @@ use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zoop\Common\User\UserInterface;
 use Zoop\User\Events;
+use Zoop\User\Exception\UserForbiddenException;
 
 /**
  *
@@ -28,6 +29,8 @@ class UserAbstractFactory implements AbstractFactoryInterface
             if ($authenticationService->hasIdentity()) {
                 $this->triggerUserEvent($serviceLocator, $authenticationService->getIdentity());
                 return true;
+            } else {
+                throw new UserForbiddenException("Cannot authenticate user");
             }
         }
     }
