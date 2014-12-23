@@ -5,10 +5,10 @@ namespace Zoop\User\Test\DataModel;
 use Zoop\Shard\AccessControl\Events as AccessControlEvents;
 use Zoop\GomiModule\DataModel\User;
 use Zoop\User\Test\AbstractTest;
-use Zoop\User\DataModel\Company\Admin as CompanyAdmin;
+use Zoop\User\DataModel\Customer\Admin as CustomerAdmin;
 use Zoop\User\Roles;
 
-class CompanyAdminTest extends AbstractTest
+class CustomerAdminTest extends AbstractTest
 {
     public function testCreateFail()
     {
@@ -30,15 +30,15 @@ class CompanyAdminTest extends AbstractTest
         $username = 'nespresso';
         $password = 'password1';
 
-        $user = new CompanyAdmin;
+        $user = new CustomerAdmin;
         $user->setEmail($email);
         $user->setFirstName('Jean-Marc');
         $user->setLastName('Duvoisin');
         $user->setUsername($username);
         $user->setPassword($password);
 
-        $user->addStore('nespresso-en-us');
-        $user->addStore('nespresso-en-au');
+        $user->addEntity('nespresso-en-us');
+        $user->addEntity('nespresso-en-au');
 
         $dm->persist($user);
         $dm->flush();
@@ -63,15 +63,15 @@ class CompanyAdminTest extends AbstractTest
         $username = 'nespresso';
         $password = 'password1';
 
-        $user = new CompanyAdmin;
+        $user = new CustomerAdmin;
         $user->setEmail($email);
         $user->setFirstName('Jean-Marc');
         $user->setLastName('Duvoisin');
         $user->setUsername($username);
         $user->setPassword($password);
 
-        $user->addStore('nespresso-en-us');
-        $user->addStore('nespresso-en-au');
+        $user->addEntity('nespresso-en-us');
+        $user->addEntity('nespresso-en-au');
 
         $dm->persist($user);
         $dm->flush();
@@ -80,7 +80,7 @@ class CompanyAdminTest extends AbstractTest
 
         $user = $this->getUser($username);
 
-        $this->assertTrue($user instanceof CompanyAdmin);
+        $this->assertTrue($user instanceof CustomerAdmin);
         $this->assertEquals($username, $user->getUsername());
         $this->assertNotEquals($email, $user->getEmail());
 

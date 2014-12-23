@@ -37,9 +37,9 @@ class PartnerAdminTest extends AbstractTest
         $user->setUsername($username);
         $user->setPassword($password);
 
-        $user->addCompany('nestle');
-        $user->addCompany('bmw');
-        $user->addCompany('youtube');
+        $user->addEntity('nestle');
+        $user->addEntity('bmw');
+        $user->addEntity('youtube');
 
         $dm->persist($user);
         $dm->flush();
@@ -71,9 +71,9 @@ class PartnerAdminTest extends AbstractTest
         $user->setUsername($username);
         $user->setPassword($password);
 
-        $user->addCompany('nestle');
-        $user->addCompany('bmw');
-        $user->addCompany('youtube');
+        $user->addEntity('nestle');
+        $user->addEntity('bmw');
+        $user->addEntity('youtube');
 
         $dm->persist($user);
         $dm->flush();

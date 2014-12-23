@@ -56,9 +56,7 @@ return [
                         'extension.validator' => true,
                         'extension.stamp' => true,
                     ],
-                    'models' => [
-                        'Zoop\User\DataModel' => __DIR__ . '/../src/Zoop/User/DataModel'
-                    ],
+                    'models' => [],
                     'service_manager_config' => [
                         'abstract_factories' => [
                             'Zoop\User\Service\UserAbstractFactory'

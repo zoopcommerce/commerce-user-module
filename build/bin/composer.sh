@@ -15,3 +15,5 @@ else
         /opt/composer/composer.phar update --optimize-autoloader -vvv
     fi
 fi
+
+#/opt/composer/composer.phar dump-autoload --optimize

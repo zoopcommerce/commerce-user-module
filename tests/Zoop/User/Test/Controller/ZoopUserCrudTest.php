@@ -8,7 +8,7 @@ use Zoop\User\Test\AbstractTest;
 use Zoop\Test\Helper\DataHelper;
 use Zoop\User\DataModel\Zoop\Admin as ZoopAdmin;
 use Zoop\User\DataModel\Partner\Admin as PartnerAdmin;
-use Zoop\User\DataModel\Company\Admin as CompanyAdmin;
+use Zoop\User\DataModel\Customer\Admin as CustomerAdmin;
 
 class ZoopUserCrudTest extends AbstractTest
 {
@@ -135,7 +135,7 @@ class ZoopUserCrudTest extends AbstractTest
         return $username;
     }
 
-    public function testCreateCompanyUser()
+    public function testCreateCustomerUser()
     {
         $username = "nespresso";
 
@@ -172,7 +172,7 @@ class ZoopUserCrudTest extends AbstractTest
         self::getNoAuthDocumentManager()->clear();
 
         $user = DataHelper::get(self::getNoAuthDocumentManager(), 'Zoop\User\DataModel\AbstractUser', $username);
-        $this->assertTrue($user instanceof CompanyAdmin);
+        $this->assertTrue($user instanceof CustomerAdmin);
         $this->assertEquals($username, $user->getUsername());
 
         return $username;
