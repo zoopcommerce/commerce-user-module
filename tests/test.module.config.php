@@ -98,9 +98,8 @@ return [
             'manifest' => [
                 'noauth' => [
                     'models' => [
-                        'Zoop\User\DataModel' => __DIR__ . '/../src/Zoop/User/DataModel',
-                        'Zoop\Common\DataModel' => __DIR__ .
-                            '/../vendor/zoopcommerce/commerce-common-module/src/Zoop/Common/DataModel',
+                        'Zoop\DataModel' => __DIR__ .
+                            '/../vendor/zoopcommerce/commerce-public-data-models-module/src',
                     ]
                 ]
             ],

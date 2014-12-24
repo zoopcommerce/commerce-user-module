@@ -67,7 +67,8 @@
         "zoopcommerce/commerce-public-apis-module"          : "dev-master",
         "zoopcommerce/commerce-public-data-models-module"   : "dev-master",
         "zoopcommerce/gateway-module"                       : "~2.0",
-        "zoopcommerce/shard-module"                         : "~4.0"
+        "zoopcommerce/shard-module"                         : "~4.0",
+        "zoopcommerce/maggott-module"                       : "dev-master#45bff381afda81c2e92855b5a4a739b627953673 as 1.1.2"
     },
     "require-dev": {
         "phpunit/phpunit"                                   : ">=3.7",

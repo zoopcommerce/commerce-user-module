@@ -9,6 +9,7 @@ return [
         'Zoop\GatewayModule',
         'Zoop\GomiModule',
         'Zoop\Api',
+        'Zoop\DataModel',
         'Zoop\Common',
         'Zoop\User',
         'Zoop\Test'
