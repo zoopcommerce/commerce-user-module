@@ -2,7 +2,6 @@
 
 namespace Zoop\User\Test\Controller;
 
-use Zend\Http\Header\Origin;
 use Zend\Http\Header\Host;
 use Zoop\User\Test\AbstractTest;
 use Zoop\Test\Helper\DataHelper;
@@ -25,7 +24,7 @@ class ZoopUserCrudTest extends AbstractTest
             "lastName" => "Stuart",
             "email" => "josh@zoopcommerce.com",
             "password" => self::$zoopAdminSecret,
-            "type" => "ZoopAdmin"
+            "type" => "zoop::admin"
         ];
 
         $request = $this->getRequest();
@@ -35,16 +34,13 @@ class ZoopUserCrudTest extends AbstractTest
 
         $request->setMethod('POST')
             ->getHeaders()->addHeaders([
-                Origin::fromString('Origin: http://api.zoopcommerce.local'),
                 Host::fromString('Host: api.zoopcommerce.local')
             ]);
 
         $this->dispatch('http://api.zoopcommerce.local/users');
         $response = $this->getResponse();
 
-        //we should change this to a 403
-//        $this->assertResponseStatusCode(403);
-        $this->assertResponseStatusCode(500);
+        $this->assertResponseStatusCode(401);
     }
 
     public function testCreateZoopUser()
@@ -69,7 +65,6 @@ class ZoopUserCrudTest extends AbstractTest
 
         $request->setMethod('POST')
             ->getHeaders()->addHeaders([
-                Origin::fromString('Origin: http://api.zoopcommerce.local'),
                 Host::fromString('Host: api.zoopcommerce.local')
             ]);
 
@@ -101,7 +96,7 @@ class ZoopUserCrudTest extends AbstractTest
             "lastName" => "Lebowitz",
             "email" => "mike@bigspaceship.com",
             "password" => "password1",
-            "merchants" => [
+            "entities" => [
                 "nestle",
                 "bmw",
                 "youtube"
@@ -117,7 +112,6 @@ class ZoopUserCrudTest extends AbstractTest
 
         $request->setMethod('POST')
             ->getHeaders()->addHeaders([
-                Origin::fromString('Origin: http://api.zoopcommerce.local'),
                 Host::fromString('Host: api.zoopcommerce.local')
             ]);
 
@@ -131,6 +125,7 @@ class ZoopUserCrudTest extends AbstractTest
         $user = DataHelper::get(self::getNoAuthDocumentManager(), 'Zoop\User\DataModel\AbstractUser', $username);
         $this->assertTrue($user instanceof PartnerAdmin);
         $this->assertEquals($username, $user->getUsername());
+        $this->assertCount(3, $user->getEntities());
 
         return $username;
     }
@@ -145,11 +140,11 @@ class ZoopUserCrudTest extends AbstractTest
             "lastName" => "Duvoisin",
             "email" => "jm@nespresso.com",
             "password" => "password1",
-            "stores" => [
+            "entities" => [
                 "nespresso-en-us",
                 "nespresso-en-au"
             ],
-            "type" => "company::admin"
+            "type" => "customer::admin"
         ];
 
         $request = $this->getRequest();
@@ -160,7 +155,6 @@ class ZoopUserCrudTest extends AbstractTest
 
         $request->setMethod('POST')
             ->getHeaders()->addHeaders([
-                Origin::fromString('Origin: http://api.zoopcommerce.local'),
                 Host::fromString('Host: api.zoopcommerce.local')
             ]);
 
@@ -178,6 +172,9 @@ class ZoopUserCrudTest extends AbstractTest
         return $username;
     }
 
+    /**
+     * @depends testCreateCustomerUser
+     */
     public function testGetUsers()
     {
         $request = $this->getRequest();
@@ -186,7 +183,6 @@ class ZoopUserCrudTest extends AbstractTest
 
         $request->setMethod('GET')
             ->getHeaders()->addHeaders([
-                Origin::fromString('Origin: http://api.zoopcommerce.local'),
                 Host::fromString('Host: api.zoopcommerce.local')
             ]);
 
@@ -212,6 +208,9 @@ class ZoopUserCrudTest extends AbstractTest
         return $user;
     }
 
+    /**
+     * @depends testCreateCustomerUser
+     */
     public function testGetUser()
     {
         $request = $this->getRequest();
@@ -220,7 +219,6 @@ class ZoopUserCrudTest extends AbstractTest
 
         $request->setMethod('GET')
             ->getHeaders()->addHeaders([
-                Origin::fromString('Origin: http://api.zoopcommerce.local'),
                 Host::fromString('Host: api.zoopcommerce.local')
             ]);
 
@@ -260,7 +258,6 @@ class ZoopUserCrudTest extends AbstractTest
 
         $request->setMethod('PATCH')
             ->getHeaders()->addHeaders([
-                Origin::fromString('Origin: http://api.zoopcommerce.local'),
                 Host::fromString('Host: api.zoopcommerce.local')
             ]);
 
@@ -291,7 +288,6 @@ class ZoopUserCrudTest extends AbstractTest
 
         $request->setMethod('DELETE')
             ->getHeaders()->addHeaders([
-                Origin::fromString('Origin: http://api.zoopcommerce.local'),
                 Host::fromString('Host: api.zoopcommerce.local')
             ]);
 

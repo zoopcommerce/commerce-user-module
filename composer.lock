@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e52b2eceba005ce4f256bc1cc59dcc02",
+    "hash": "235efebf7e7b916f6aee46755fdc213e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -130,7 +130,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/eeda578cbe24a170331a1cfdf78be723412df7a4",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b5202eb9e83f8db52e0e58867e0a46e63be8332e",
                 "reference": "a11349d39d85bef75a71bd69bd604ac4fb993f03",
                 "shasum": ""
             },
@@ -1708,12 +1708,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-public-apis-module.git",
-                "reference": "f7ab351bf7d6f718b0c5bad4737a19d121e39216"
+                "reference": "25d94c0fcf4beb06d3aa56527e5dcab7b497c70e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-apis-module/zipball/f7ab351bf7d6f718b0c5bad4737a19d121e39216",
-                "reference": "f7ab351bf7d6f718b0c5bad4737a19d121e39216",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-apis-module/zipball/25d94c0fcf4beb06d3aa56527e5dcab7b497c70e",
+                "reference": "25d94c0fcf4beb06d3aa56527e5dcab7b497c70e",
                 "shasum": ""
             },
             "require": {
@@ -1754,7 +1754,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-public-apis-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-public-apis-module/issues"
             },
-            "time": "2014-12-07 07:11:35"
+            "time": "2014-12-24 06:12:25"
         },
         {
             "name": "zoopcommerce/commerce-public-data-models-module",
@@ -1762,12 +1762,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-public-data-models-module.git",
-                "reference": "91c13ca999a7d086a150f099727a101dc2b4f85f"
+                "reference": "23d75339ff57539b89ca48cd33e5f725a5de9314"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-data-models-module/zipball/91c13ca999a7d086a150f099727a101dc2b4f85f",
-                "reference": "91c13ca999a7d086a150f099727a101dc2b4f85f",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-data-models-module/zipball/23d75339ff57539b89ca48cd33e5f725a5de9314",
+                "reference": "23d75339ff57539b89ca48cd33e5f725a5de9314",
                 "shasum": ""
             },
             "require": {
@@ -1778,6 +1778,7 @@
                 "doctrine/orm": "2.4.0-RC2",
                 "php": ">=5.4",
                 "zoopcommerce/commerce-public-apis-module": "dev-master",
+                "zoopcommerce/maggott-module": "dev-master#45bff381afda81c2e92855b5a4a739b627953673 as 1.1.2",
                 "zoopcommerce/shard-module": "~4.0"
             },
             "require-dev": {
@@ -1815,7 +1816,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-public-data-models-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-public-data-models-module/issues"
             },
-            "time": "2014-12-12 21:25:49"
+            "time": "2014-12-24 06:29:41"
         },
         {
             "name": "zoopcommerce/common",
@@ -2017,16 +2018,16 @@
         },
         {
             "name": "zoopcommerce/maggott-module",
-            "version": "1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zoopcommerce/maggott-module.git",
-                "reference": "f7a45f1be6f7cdb16b56d6378184a89e3e1aae01"
+                "reference": "45bff381afda81c2e92855b5a4a739b627953673"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/maggott-module/zipball/f7a45f1be6f7cdb16b56d6378184a89e3e1aae01",
-                "reference": "f7a45f1be6f7cdb16b56d6378184a89e3e1aae01",
+                "url": "https://api.github.com/repos/zoopcommerce/maggott-module/zipball/87ca40fe00b3a1e6af7d850c5f89a90d1e802bd9",
+                "reference": "45bff381afda81c2e92855b5a4a739b627953673",
                 "shasum": ""
             },
             "require": {
@@ -2063,7 +2064,7 @@
                 "shard",
                 "zf2"
             ],
-            "time": "2013-08-28 01:47:05"
+            "time": "2014-12-24 05:16:10"
         },
         {
             "name": "zoopcommerce/mystique",
@@ -3477,12 +3478,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-api-module.git",
-                "reference": "979b54bba251f7f04c81f328b87b2b1134515ad3"
+                "reference": "56b947d2d4372deca5e537a06fedb011fa514d2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-api-module/zipball/979b54bba251f7f04c81f328b87b2b1134515ad3",
-                "reference": "979b54bba251f7f04c81f328b87b2b1134515ad3",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-api-module/zipball/56b947d2d4372deca5e537a06fedb011fa514d2c",
+                "reference": "56b947d2d4372deca5e537a06fedb011fa514d2c",
                 "shasum": ""
             },
             "require": {
@@ -3500,6 +3501,7 @@
                 "php": ">=5.4",
                 "sendgrid/sendgrid": "~2.1",
                 "zendframework/zendframework": "2.3.1",
+                "zoopcommerce/maggott-module": "dev-master#45bff381afda81c2e92855b5a4a739b627953673 as 1.1.2",
                 "zoopcommerce/shard-module": "~4.0"
             },
             "require-dev": {
@@ -3507,7 +3509,8 @@
                 "phpunit/phpunit": ">=3.7",
                 "squizlabs/php_codesniffer": "1.4.*",
                 "zoopcommerce/commerce-common-module": "dev-master",
-                "zoopcommerce/commerce-public-apis-module": "dev-master"
+                "zoopcommerce/commerce-public-apis-module": "dev-master",
+                "zoopcommerce/commerce-public-data-models-module": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -3540,7 +3543,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-api-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-api-module/issues"
             },
-            "time": "2014-10-18 05:15:48"
+            "time": "2014-12-24 23:16:27"
         },
         {
             "name": "zoopcommerce/commerce-common-module",
@@ -3548,12 +3551,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-common-module.git",
-                "reference": "bdb300b3b7869d86ab03717690590ad3af2ac88d"
+                "reference": "c0969208d656d42a1effb5c089f7b78ce961cc34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/bdb300b3b7869d86ab03717690590ad3af2ac88d",
-                "reference": "bdb300b3b7869d86ab03717690590ad3af2ac88d",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/c0969208d656d42a1effb5c089f7b78ce961cc34",
+                "reference": "c0969208d656d42a1effb5c089f7b78ce961cc34",
                 "shasum": ""
             },
             "require": {
@@ -3575,6 +3578,7 @@
                 "zendframework/zendframework": "2.3.1",
                 "zoopcommerce/commerce-public-apis-module": "dev-master",
                 "zoopcommerce/commerce-public-data-models-module": "dev-master",
+                "zoopcommerce/maggott-module": "dev-master#45bff381afda81c2e92855b5a4a739b627953673 as 1.1.2",
                 "zoopcommerce/shard-module": "~4.0"
             },
             "require-dev": {
@@ -3613,7 +3617,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-common-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-common-module/issues"
             },
-            "time": "2014-11-30 06:47:02"
+            "time": "2014-12-24 06:45:40"
         },
         {
             "name": "zoopcommerce/commerce-test-data-module",
@@ -3621,12 +3625,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-test-data-module.git",
-                "reference": "2bd49aadfbf4e49708510d996e55bf56e17794b5"
+                "reference": "9ba39d4398c9ff8d31a93bf932330b5bce7fa5bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-test-data-module/zipball/2bd49aadfbf4e49708510d996e55bf56e17794b5",
-                "reference": "2bd49aadfbf4e49708510d996e55bf56e17794b5",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-test-data-module/zipball/9ba39d4398c9ff8d31a93bf932330b5bce7fa5bb",
+                "reference": "9ba39d4398c9ff8d31a93bf932330b5bce7fa5bb",
                 "shasum": ""
             },
             "require": {
@@ -3664,7 +3668,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-test-data-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-test-data-module/issues"
             },
-            "time": "2014-12-20 03:43:29"
+            "time": "2014-12-24 06:06:57"
         }
     ],
     "aliases": [
@@ -3697,6 +3701,12 @@
             "alias_normalized": "9999999-dev",
             "version": "9999999-dev",
             "package": "melihucar/ftpclient"
+        },
+        {
+            "alias": "1.1.2",
+            "alias_normalized": "1.1.2.0",
+            "version": "9999999-dev",
+            "package": "zoopcommerce/maggott-module"
         }
     ],
     "minimum-stability": "stable",
@@ -3711,6 +3721,7 @@
         "melihucar/ftpclient": 20,
         "zoopcommerce/commerce-public-apis-module": 20,
         "zoopcommerce/commerce-public-data-models-module": 20,
+        "zoopcommerce/maggott-module": 20,
         "zoopcommerce/commerce-test-data-module": 20,
         "zoopcommerce/commerce-api-module": 20,
         "zoopcommerce/commerce-common-module": 20
