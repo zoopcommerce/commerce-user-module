@@ -1708,12 +1708,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-public-apis-module.git",
-                "reference": "25d94c0fcf4beb06d3aa56527e5dcab7b497c70e"
+                "reference": "71bb7cecd61bb2e4d6271f355c0570246cfdcb9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-apis-module/zipball/25d94c0fcf4beb06d3aa56527e5dcab7b497c70e",
-                "reference": "25d94c0fcf4beb06d3aa56527e5dcab7b497c70e",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-apis-module/zipball/71bb7cecd61bb2e4d6271f355c0570246cfdcb9d",
+                "reference": "71bb7cecd61bb2e4d6271f355c0570246cfdcb9d",
                 "shasum": ""
             },
             "require": {
@@ -1754,7 +1754,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-public-apis-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-public-apis-module/issues"
             },
-            "time": "2014-12-24 06:12:25"
+            "time": "2015-01-01 04:52:01"
         },
         {
             "name": "zoopcommerce/commerce-public-data-models-module",
@@ -1762,12 +1762,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-public-data-models-module.git",
-                "reference": "23d75339ff57539b89ca48cd33e5f725a5de9314"
+                "reference": "840eae86d9b22def8f6a496a615b1feca7510499"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-data-models-module/zipball/23d75339ff57539b89ca48cd33e5f725a5de9314",
-                "reference": "23d75339ff57539b89ca48cd33e5f725a5de9314",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-public-data-models-module/zipball/840eae86d9b22def8f6a496a615b1feca7510499",
+                "reference": "840eae86d9b22def8f6a496a615b1feca7510499",
                 "shasum": ""
             },
             "require": {
@@ -1816,7 +1816,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-public-data-models-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-public-data-models-module/issues"
             },
-            "time": "2014-12-24 06:29:41"
+            "time": "2015-01-01 05:01:03"
         },
         {
             "name": "zoopcommerce/common",
@@ -2259,16 +2259,16 @@
         },
         {
             "name": "zoopcommerce/shard-module",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zoopcommerce/shard-module.git",
-                "reference": "90a08a0b3549bc75a030162308ada41679763aea"
+                "reference": "0a4f192f55e4ee7812ad9a60e17c3c317cc2a6f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/shard-module/zipball/90a08a0b3549bc75a030162308ada41679763aea",
-                "reference": "90a08a0b3549bc75a030162308ada41679763aea",
+                "url": "https://api.github.com/repos/zoopcommerce/shard-module/zipball/0a4f192f55e4ee7812ad9a60e17c3c317cc2a6f2",
+                "reference": "0a4f192f55e4ee7812ad9a60e17c3c317cc2a6f2",
                 "shasum": ""
             },
             "require": {
@@ -2283,8 +2283,7 @@
                 "zoopcommerce/shard": "~5.0"
             },
             "require-dev": {
-                "pdepend/pdepend": "1.1.1",
-                "phpmd/phpmd": "1.5.*",
+                "phpmd/phpmd": "2.*",
                 "phpunit/phpunit": ">=3.7",
                 "squizlabs/php_codesniffer": "1.4.*",
                 "zoopcommerce/slipstream": "~0.1"
@@ -2315,7 +2314,7 @@
                 "zf2",
                 "zoop"
             ],
-            "time": "2014-07-21 12:49:22"
+            "time": "2014-12-30 07:41:56"
         }
     ],
     "packages-dev": [
@@ -2451,16 +2450,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.0.13",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "0e7d2eec5554f869fa7a4ec2d21e4b37af943ea5"
+                "reference": "ca158276c1200cc27f5409a5e338486bc0b4fc94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0e7d2eec5554f869fa7a4ec2d21e4b37af943ea5",
-                "reference": "0e7d2eec5554f869fa7a4ec2d21e4b37af943ea5",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ca158276c1200cc27f5409a5e338486bc0b4fc94",
+                "reference": "ca158276c1200cc27f5409a5e338486bc0b4fc94",
                 "shasum": ""
             },
             "require": {
@@ -2512,7 +2511,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-12-03 06:41:44"
+            "time": "2014-12-26 13:28:33"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2698,16 +2697,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.4.0",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0"
+                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
-                "reference": "bbe7bcb83b6ec1a9eaabbe1b70d4795027c53ee0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6a5e49a86ce5e33b8d0657abe145057fc513543a",
+                "reference": "6a5e49a86ce5e33b8d0657abe145057fc513543a",
                 "shasum": ""
             },
             "require": {
@@ -2765,7 +2764,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-12-05 06:49:03"
+            "time": "2014-12-28 07:57:05"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3106,16 +3105,16 @@
         },
         {
             "name": "sebastian/version",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43"
+                "reference": "a77d9123f8e809db3fbdea15038c27a95da4058b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43",
-                "reference": "b6e1f0cf6b9e1ec409a0d3e2f2a5fb0998e36b43",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/a77d9123f8e809db3fbdea15038c27a95da4058b",
+                "reference": "a77d9123f8e809db3fbdea15038c27a95da4058b",
                 "shasum": ""
             },
             "type": "library",
@@ -3137,7 +3136,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2014-03-07 15:35:33"
+            "time": "2014-12-15 14:25:24"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -3478,12 +3477,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-api-module.git",
-                "reference": "56b947d2d4372deca5e537a06fedb011fa514d2c"
+                "reference": "90a496cf449201b99ae3c93ac367531b0d01ef55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-api-module/zipball/56b947d2d4372deca5e537a06fedb011fa514d2c",
-                "reference": "56b947d2d4372deca5e537a06fedb011fa514d2c",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-api-module/zipball/90a496cf449201b99ae3c93ac367531b0d01ef55",
+                "reference": "90a496cf449201b99ae3c93ac367531b0d01ef55",
                 "shasum": ""
             },
             "require": {
@@ -3543,7 +3542,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-api-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-api-module/issues"
             },
-            "time": "2014-12-24 23:16:27"
+            "time": "2015-01-01 05:32:31"
         },
         {
             "name": "zoopcommerce/commerce-common-module",
@@ -3551,12 +3550,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-common-module.git",
-                "reference": "c0969208d656d42a1effb5c089f7b78ce961cc34"
+                "reference": "f1afa357c14695afe98defaa3a08a980ada923a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/c0969208d656d42a1effb5c089f7b78ce961cc34",
-                "reference": "c0969208d656d42a1effb5c089f7b78ce961cc34",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-common-module/zipball/f1afa357c14695afe98defaa3a08a980ada923a8",
+                "reference": "f1afa357c14695afe98defaa3a08a980ada923a8",
                 "shasum": ""
             },
             "require": {
@@ -3617,7 +3616,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-common-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-common-module/issues"
             },
-            "time": "2014-12-24 06:45:40"
+            "time": "2015-01-01 05:14:47"
         },
         {
             "name": "zoopcommerce/commerce-test-data-module",
@@ -3625,12 +3624,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:zoopcommerce/commerce-test-data-module.git",
-                "reference": "9ba39d4398c9ff8d31a93bf932330b5bce7fa5bb"
+                "reference": "2dea479bbdc183fe5d5b0a43e08f00cb4d478105"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zoopcommerce/commerce-test-data-module/zipball/9ba39d4398c9ff8d31a93bf932330b5bce7fa5bb",
-                "reference": "9ba39d4398c9ff8d31a93bf932330b5bce7fa5bb",
+                "url": "https://api.github.com/repos/zoopcommerce/commerce-test-data-module/zipball/2dea479bbdc183fe5d5b0a43e08f00cb4d478105",
+                "reference": "2dea479bbdc183fe5d5b0a43e08f00cb4d478105",
                 "shasum": ""
             },
             "require": {
@@ -3668,7 +3667,7 @@
                 "source": "https://github.com/zoopcommerce/commerce-test-data-module/tree/master",
                 "issues": "https://github.com/zoopcommerce/commerce-test-data-module/issues"
             },
-            "time": "2014-12-24 06:06:57"
+            "time": "2014-12-26 00:59:04"
         }
     ],
     "aliases": [

@@ -6,6 +6,7 @@
 
 namespace Zoop\User\Service;
 
+use \Exception;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 use Zoop\Common\User\UserInterface;
