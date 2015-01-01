@@ -129,11 +129,11 @@ return [
             ]
         ],
     ],
-    'controllers' => [
-        'invokables' => [
-        ],
-    ],
     'service_manager' => [
+        'invokables' => [
+            'zoop.commerce.user.entitylistener' => 'Zoop\User\EntityListener',
+            'zoop.commerce.user.systemuserutil' => 'Zoop\User\Service\SystemUserUtil',
+        ],
         'factories' => [
             'Zoop\User\HttpAdapter' => 'Zoop\User\Service\HttpAdapterServiceFactory',
         ],
