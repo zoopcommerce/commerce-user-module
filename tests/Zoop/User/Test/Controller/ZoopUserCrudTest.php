@@ -40,7 +40,7 @@ class ZoopUserCrudTest extends AbstractTest
         $this->dispatch('http://api.zoopcommerce.local/users');
         $response = $this->getResponse();
 
-        $this->assertResponseStatusCode(401);
+        $this->assertResponseStatusCode(403);
     }
 
     public function testCreateZoopUser()

@@ -19,7 +19,7 @@ use Zoop\Entity\DataModel\EntityFilterInterface;
 class EntityListener implements ListenerAggregateInterface, ServiceLocatorAwareInterface
 {
     use ServiceLocatorAwareTrait;
-    
+
     const USER_COLLECTION = 'Zoop\User\DataModel\AbstractUser';
 
     /**
@@ -77,7 +77,7 @@ class EntityListener implements ListenerAggregateInterface, ServiceLocatorAwareI
             $users = $this->getParentUsers($parent);
             foreach ($users as $user) {
                 $this->addEntitiesToUser($user, $entity->getEntities());
-                
+
                 //this is a little slower but avoids flushing documents
                 //that may have been changed duringh this process that we
                 //dont have permissions for.
@@ -85,7 +85,7 @@ class EntityListener implements ListenerAggregateInterface, ServiceLocatorAwareI
             }
         }
     }
-    
+
     /**
      * @param UserInterface $user
      * @param array $entities
@@ -98,7 +98,7 @@ class EntityListener implements ListenerAggregateInterface, ServiceLocatorAwareI
             }
         }
     }
-    
+
     /**
      * @param EntityInterface $parent
      * @return mixed
@@ -108,19 +108,19 @@ class EntityListener implements ListenerAggregateInterface, ServiceLocatorAwareI
         $systemUserUtil = $this->getSystemUserUtil();
         //set system user
         $systemUserUtil->addSystemUser();
-        
+
         $users = $this->getDocumentManager()
             ->createQueryBuilder(self::USER_COLLECTION)
             ->field('entities')->in([$parent->getSlug()])
             ->getQuery()
             ->execute();
-        
+
         //remove the system user and restore user if available
         $systemUserUtil->removeSystemUser();
-        
+
         return $users;
     }
-    
+
     /**
      * @return DocumentManager
      */
@@ -129,7 +129,7 @@ class EntityListener implements ListenerAggregateInterface, ServiceLocatorAwareI
         return $this->getServiceLocator()
             ->get('doctrine.odm.documentmanager.commerce');
     }
-    
+
     /**
      * @return SystemUserUtil
      */
